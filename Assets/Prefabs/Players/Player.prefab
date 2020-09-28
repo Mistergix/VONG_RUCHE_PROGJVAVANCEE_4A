@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 2121524939}
   - component: {fileID: 2121524940}
   - component: {fileID: 2121524941}
-  - component: {fileID: 2121524942}
+  - component: {fileID: 3380513781738650512}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -372,7 +372,7 @@ MonoBehaviour:
   leftKey: 113
   rightKey: 100
   shootKey: 97
---- !u!114 &2121524942
+--- !u!114 &3380513781738650512
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -381,6 +381,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4834160500933116159}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f520e12d0091ea14f9b8a5c0113e5317, type: 3}
+  m_Script: {fileID: 11500000, guid: 8782bfa3268f9c8429c2df7c691c7d1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnCoolDown: 2
+  boatPool: {fileID: 0}
+  boatSpawn: {fileID: 368573457}
+  spawnKey: 101
