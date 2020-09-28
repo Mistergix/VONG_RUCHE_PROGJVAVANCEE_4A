@@ -121,6 +121,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &368573457 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 368573457, guid: fd34c88930f0ed24e9da15cd2798694b,
+    type: 3}
+  m_PrefabInstance: {fileID: 4834160499151349301}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &612274038
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,6 +173,52 @@ MonoBehaviour:
   _referencePrefab: {fileID: 1187598636018120116, guid: 561ed7a73a2191e46bdba22d6479c9f0,
     type: 3}
   numberOfInstancesAtStart: 5
+--- !u!1 &622441616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 622441617}
+  - component: {fileID: 622441618}
+  m_Layer: 0
+  m_Name: Boat Pool Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &622441617
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622441616}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &622441618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622441616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0ce07c158d82e344836b99d13eee9c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _referencePrefab: {fileID: 2976517984277734111, guid: 9d39db8eaf922834a95f77d288d37798,
+    type: 3}
+  numberOfInstancesAtStart: 3
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,6 +394,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &2121524938 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4834160500933116159, guid: fd34c88930f0ed24e9da15cd2798694b,
+    type: 3}
+  m_PrefabInstance: {fileID: 4834160499151349301}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2121524939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121524938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8782bfa3268f9c8429c2df7c691c7d1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnCoolDown: 2
+  boatPool: {fileID: 622441618}
+  boatSpawn: {fileID: 368573457}
+  spawnKey: 101
 --- !u!1001 &4834160499151349301
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -413,7 +487,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2121524942, guid: fd34c88930f0ed24e9da15cd2798694b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fd34c88930f0ed24e9da15cd2798694b, type: 3}
 --- !u!1001 &7794240481782225986
 PrefabInstance:
