@@ -6,17 +6,51 @@ using UnityEngine;
 public abstract class PlayerShoot : MonoBehaviour
 {
     [SerializeField]
-    private float shootCoolDown, aimSpeed, upwardShootForce;
+    private float shootCoolDown, aimSpeed, bulletHeight;
+
+    [Range(2, 100)]
+    [SerializeField]
+    private int trajectoryPrecision = 10;
 
     [SerializeField]
-    private Transform aimStart, aimEnd;
+    private PoolManager bulletPool;
+
+    [SerializeField]
+    private Transform aimStart, aimEnd, bulletSpawn;
 
     [SerializeField]
     private GameObject bulletPrefab;
 
+    [SerializeField]
+    private LineRenderer bulletLineRenderer;
+
     private float aimQuantity;
 
     private bool canShoot;
+
+    private Vector3 parabola;
+
+    private void Visualize()
+    {
+        Vector3[] positions = new Vector3[trajectoryPrecision];
+        Vector3 start = bulletSpawn.position;
+        Vector3 end = BulletLandSpot();
+
+        positions[0] = start;
+
+        for (int i = 1; i < trajectoryPrecision - 1; i++)
+        {
+            float t = (float)i / (trajectoryPrecision - 1);
+            Vector3 lerp = Vector3.Lerp(start, end, t);
+            lerp.y = Geometry.CalulateParabolaWithTurningPoint(parabola, lerp.x);
+            positions[i] = lerp;
+        }
+
+
+        positions[trajectoryPrecision - 1] = end;
+
+        bulletLineRenderer.SetPositions(positions);
+    }
 
     private float AimQuantity { get => aimQuantity; 
         set {
@@ -29,6 +63,10 @@ public abstract class PlayerShoot : MonoBehaviour
         Init();
         canShoot = true;
         AimQuantity = 0;
+        parabola = Vector3.zero;
+        bulletLineRenderer.transform.parent = null;
+        bulletLineRenderer.transform.position = Vector3.zero;
+        bulletLineRenderer.positionCount = trajectoryPrecision;
     }
 
     protected virtual void Init() { }
@@ -66,11 +104,17 @@ public abstract class PlayerShoot : MonoBehaviour
 
 
         AimQuantity += sign * aimSpeed * Time.deltaTime;
+
+        parabola = GetParabola();
+
+        Visualize();
     }
 
     private Vector3 BulletLandSpot()
     {
-        return Vector3.Lerp(aimStart.position, aimEnd.position, AimQuantity);
+        Vector3 lerp = Vector3.Lerp(aimStart.position, aimEnd.position, AimQuantity);
+        lerp.y = 0;
+        return lerp;
     }
 
     private void OnDrawGizmos()
@@ -78,11 +122,16 @@ public abstract class PlayerShoot : MonoBehaviour
         Gizmos.DrawCube(BulletLandSpot(), Vector3.one * 0.3f);
     }
 
+    private Vector3 GetParabola()
+    {
+        return Geometry.GetParabola(bulletSpawn.position, BulletLandSpot(), bulletHeight);
+    }
+
     private void InstantiateBullet()
     {
-        //TODO use a pool
-        // Add Bullet behavior
-        Instantiate(bulletPrefab, aimStart.position, Quaternion.identity);
+        GameObject bullet = bulletPool.RequestACopy();
+
+        bullet.GetComponent<Bullet>().Initialize(parabola, bulletSpawn.position, BulletLandSpot());
     }
 
     private IEnumerator Shoot()
