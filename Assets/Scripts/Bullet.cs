@@ -12,6 +12,18 @@ public class Bullet : MonoBehaviour
     private float x;
     private float speed;
 
+    private void OnEnable()
+    {
+        StartCoroutine(Recycle(timeToEnd + 1));
+    }
+
+    IEnumerator Recycle(float lifeTime)
+    {
+        yield return new WaitForSeconds(lifeTime);
+
+        PoolManager.RecycleGameObject(gameObject);
+    }
+
     public void Initialize(Vector3 parabola, Vector3 start, Vector3 end)
     {
         this.parabola = parabola;
@@ -26,5 +38,10 @@ public class Bullet : MonoBehaviour
         float y = Geometry.CalulateParabolaWithTurningPoint(parabola, x);
 
         transform.position = new Vector3(x, y, transform.position.z);
+    }
+
+    public void TouchedWater()
+    {
+        PoolManager.RecycleGameObject(gameObject);
     }
 }
