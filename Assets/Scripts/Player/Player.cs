@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         playerMovement.HandleMove();
+        playerShoot.Aim();
         playerShoot.HandleShoot();
         playerBoatSpawner.HandleBoatSpawn();
     }
