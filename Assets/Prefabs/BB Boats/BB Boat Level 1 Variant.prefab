@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priority: 10
+  speed: 5
 --- !u!1001 &6450527654109073143
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23,17 +24,17 @@ PrefabInstance:
     - target: {fileID: 2976517984277734107, guid: 9d39db8eaf922834a95f77d288d37798,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -3.7637615
       objectReference: {fileID: 0}
     - target: {fileID: 2976517984277734107, guid: 9d39db8eaf922834a95f77d288d37798,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -2.5052442e-17
       objectReference: {fileID: 0}
     - target: {fileID: 2976517984277734107, guid: 9d39db8eaf922834a95f77d288d37798,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 3.3847852
       objectReference: {fileID: 0}
     - target: {fileID: 2976517984277734107, guid: 9d39db8eaf922834a95f77d288d37798,
         type: 3}
@@ -78,7 +79,7 @@ PrefabInstance:
     - target: {fileID: 2976517984277734111, guid: 9d39db8eaf922834a95f77d288d37798,
         type: 3}
       propertyPath: m_Name
-      value: BB Boat Level 1
+      value: BB Boat Level 1 Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d39db8eaf922834a95f77d288d37798, type: 3}
