@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerInputBoatSpawner : PlayerBoatSpawner
 {
-    private PlayerData playerData;
 
     private KeyCode spawnKey;
 
@@ -16,8 +15,7 @@ public class PlayerInputBoatSpawner : PlayerBoatSpawner
     public override void Init()
     {
         base.Init();
-        playerData = GetComponent<Player>().PlayerDataInstance;
-        SetKeys(playerData.Spawn);
+        SetKeys(PlayerDataInstance.Spawn);
     }
 
     protected override bool ShouldSpawn()

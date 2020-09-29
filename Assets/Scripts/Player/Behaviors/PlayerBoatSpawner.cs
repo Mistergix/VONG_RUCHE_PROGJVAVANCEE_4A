@@ -20,6 +20,9 @@ public abstract class PlayerBoatSpawner : MonoBehaviour
 
     private PlayerData playerData;
 
+    public PlayerData PlayerDataInstance { get => playerData; private set => playerData = value; }
+    public float SpawnCooldown { get => spawnCoolDown; private set => spawnCoolDown = value; }
+
     public virtual void Init()
     {
         canSpawn = true;
@@ -28,7 +31,7 @@ public abstract class PlayerBoatSpawner : MonoBehaviour
         Player player = GetComponent<Player>();
 
         isLeft = player.IsLeft;
-        playerData = player.PlayerDataInstance;
+        PlayerDataInstance = player.PlayerDataInstance;
     }
 
     protected abstract bool ShouldSpawn();
@@ -54,7 +57,7 @@ public abstract class PlayerBoatSpawner : MonoBehaviour
 
         InstantiateBoat();
 
-        playerData.SpawnEvent.Raise();
+        PlayerDataInstance.SpawnEvent.Raise();
 
         yield return new WaitForSeconds(spawnCoolDown);
 
@@ -73,7 +76,6 @@ public abstract class PlayerBoatSpawner : MonoBehaviour
         Boat boat = boatGo.GetComponent<Boat>();
 
         boat.IsLeft = isLeft;
-        boat.transform.position = boatSpawn.position;
-        boat.OnBorderPassedEvent = playerData.BoatBorderEvent;
+        boat.OnBorderPassedEvent = PlayerDataInstance.BoatBorderEvent;
     }
 }

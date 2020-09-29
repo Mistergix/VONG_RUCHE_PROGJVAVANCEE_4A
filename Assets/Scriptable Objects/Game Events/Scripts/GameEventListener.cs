@@ -10,6 +10,7 @@ public class GameEventListener : MonoBehaviour
     [SerializeField]
     private UnityEvent response;
     public GameEvent EventListened { get => eventListened; private set => eventListened = value; }
+    public UnityEvent Response { get => response; private set => response = value; }
 
     private void OnEnable()
     {
@@ -23,6 +24,6 @@ public class GameEventListener : MonoBehaviour
 
     public void OnEventRaised()
     {
-        response.Invoke();
+        Response.Invoke();
     }
 }

@@ -9,8 +9,6 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int maxLife;
 
-    
-
     private int currentLife;
 
     private PlayerMovement playerMovement;
@@ -19,14 +17,19 @@ public class Player : MonoBehaviour
 
     public bool IsLeft { get => PlayerDataInstance.IsLeft; }
     public PlayerData PlayerDataInstance { get => playerData; set => playerData = value; }
-    
+    public int MaxLife { get => maxLife; private set => maxLife = value; }
+    public int CurrentLife { get => currentLife; private set => currentLife = value; }
+
+    public float ShootCooldown { get => playerShoot.ShootCoolDown; }
+    public float SpawnCoolDown { get => playerBoatSpawner.SpawnCooldown; }
+
     public void Init(PlayerData playerData)
     {
         PlayerDataInstance = playerData;
         playerMovement = GetComponent<PlayerMovement>();
         playerShoot = GetComponent<PlayerShoot>();
         playerBoatSpawner = GetComponent<PlayerBoatSpawner>();
-        currentLife = maxLife;
+        CurrentLife = MaxLife;
 
         playerMovement.Init();
         playerShoot.Init();
@@ -43,11 +46,11 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentLife -= damage;
+        CurrentLife -= damage;
 
         playerData.TakeDamageEvent.Raise();
 
-        if (currentLife <= 0) {
+        if (CurrentLife <= 0) {
             gameObject.SetActive(false);
         }
     }

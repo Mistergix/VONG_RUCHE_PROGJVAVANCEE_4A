@@ -5,6 +5,9 @@ using UnityEngine;
 public class WorldInitializer : MonoBehaviour
 {
     [SerializeField]
+    private PlayerUI leftUI, rightUI;
+
+    [SerializeField]
     private InitializationData initializationData;
 
     [SerializeField]
@@ -16,8 +19,14 @@ public class WorldInitializer : MonoBehaviour
         GameObject lPlayer = Instantiate(initializationData.LeftPlayerPrefab, leftSpawn.position, Quaternion.identity);
         GameObject rPlayer = Instantiate(initializationData.RightPlayerPrefab, rightSpawn.position, Quaternion.identity);
 
-        lPlayer.GetComponent<Player>().Init(initializationData.LeftPlayerData);
-        rPlayer.GetComponent<Player>().Init(initializationData.RightPlayerData);
+        Player lp = lPlayer.GetComponent<Player>();
+        Player rp = rPlayer.GetComponent<Player>();
+
+        lp.Init(initializationData.LeftPlayerData);
+        rp.Init(initializationData.RightPlayerData);
+
+        leftUI.Init(lp);
+        rightUI.Init(rp);
     }
 
     // Update is called once per frame

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerInputShoot : PlayerShoot
 {
-    private PlayerData playerData;
 
     private KeyCode leftKey, rightKey, shootKey;
 
@@ -18,8 +17,7 @@ public class PlayerInputShoot : PlayerShoot
     public override void Init()
     {
         base.Init();
-        playerData = GetComponent<Player>().PlayerDataInstance;
-        SetKeys(playerData.Left, playerData.Right, playerData.Shoot);
+        SetKeys(PlayerDataInstance.Left, PlayerDataInstance.Right, PlayerDataInstance.Shoot);
     }
 
     protected override float AimDirection()

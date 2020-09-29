@@ -32,8 +32,6 @@ public abstract class PlayerShoot : MonoBehaviour
 
     private bool isLeft;
 
-    private PlayerData playerData;
-
     private void Visualize()
     {
         Vector3[] positions = new Vector3[trajectoryPrecision];
@@ -61,6 +59,9 @@ public abstract class PlayerShoot : MonoBehaviour
             aimQuantity = Mathf.Clamp01(value);
         } }
 
+    public PlayerData PlayerDataInstance { get; private set; }
+    public float ShootCoolDown { get => shootCoolDown; private set => shootCoolDown = value; }
+
     public virtual void Init() {
         canShoot = true;
         AimQuantity = 0;
@@ -73,7 +74,7 @@ public abstract class PlayerShoot : MonoBehaviour
         Player player = GetComponent<Player>();
 
         isLeft = player.IsLeft;
-        playerData = player.PlayerDataInstance;
+        PlayerDataInstance = player.PlayerDataInstance;
 
         if(! isLeft)
         {
@@ -156,9 +157,9 @@ public abstract class PlayerShoot : MonoBehaviour
 
         InstantiateBullet();
 
-        playerData.ShootEvent.Raise();
+        PlayerDataInstance.ShootEvent.Raise();
 
-        yield return new WaitForSeconds(shootCoolDown);
+        yield return new WaitForSeconds(ShootCoolDown);
 
         canShoot = true;
     }
