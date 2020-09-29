@@ -432,6 +432,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3299055765895044805, guid: 2ab73a74a4dad0d49aec4e17d8bf98b0,
+        type: 3}
+      propertyPath: boatSpeed
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ab73a74a4dad0d49aec4e17d8bf98b0, type: 3}
 --- !u!1001 &4834160499151349301
@@ -462,6 +467,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 54181019e3ae8fd4e978e59f450fd075,
         type: 2}
+    - target: {fileID: 3380513781738650512, guid: fd34c88930f0ed24e9da15cd2798694b,
+        type: 3}
+      propertyPath: boatSpeed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4834160500933116155, guid: fd34c88930f0ed24e9da15cd2798694b,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -5,9 +5,10 @@ using UnityEngine.AI;
 
 public class BoatForwardBehavior : BoatBehavior
 {
-    [SerializeField]
     private float speed;
     private Boat boat;
+
+    public float Speed { get => speed; set => speed = value; }
 
     private void Start() {
         boat = GetComponent<Boat>();
@@ -17,6 +18,6 @@ public class BoatForwardBehavior : BoatBehavior
     /// </summary>
     public override void Execute()
     {
-        transform.position += boat.Direction() * speed * Time.deltaTime;
+        transform.position += boat.Direction() * Speed * Time.deltaTime;
     }
 }

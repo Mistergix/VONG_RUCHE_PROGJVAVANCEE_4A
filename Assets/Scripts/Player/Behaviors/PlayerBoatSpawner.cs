@@ -6,6 +6,8 @@ using UnityEngine;
 public abstract class PlayerBoatSpawner : MonoBehaviour
 {
     [SerializeField]
+    private float boatSpeed;
+    [SerializeField]
     private float spawnCoolDown;
     [SerializeField]
     private PoolManager boatPool;
@@ -60,9 +62,15 @@ public abstract class PlayerBoatSpawner : MonoBehaviour
 
     private void InstantiateBoat()
     {
-        GameObject boat = boatPool.RequestACopy();
-        boat.transform.position = boatSpawn.position;
+        GameObject boatGo = boatPool.RequestACopy();
+        boatGo.transform.position = new Vector3(boatSpawn.position.x, 0, boatSpawn.position.z);
+        BoatForwardBehavior forwardBe =  boatGo.AddComponent<BoatForwardBehavior>();
 
-        boat.GetComponent<Boat>().IsLeft = isLeft;
+        forwardBe.Speed = boatSpeed;
+        forwardBe.Priority = 10;
+
+        Boat boat = boatGo.GetComponent<Boat>();
+
+        boat.IsLeft = isLeft;
     }
 }

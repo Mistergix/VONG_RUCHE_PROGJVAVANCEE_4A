@@ -9,7 +9,7 @@ public abstract class BoatBehavior : MonoBehaviour
     [Tooltip("Max = 1, puis décroissant")]
     private int priority;
 
-    public int Priority { get => priority; }
+    public int Priority { get => priority; set => priority = Mathf.Clamp(value, 1, 50); }
 
     public abstract void Execute();
 }
