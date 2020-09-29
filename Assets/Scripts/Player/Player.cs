@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField]
+    private int maxLife;
+
+    private int currentLife;
+
+
     private PlayerMovement playerMovement;
     private PlayerShoot playerShoot;
     private PlayerBoatSpawner playerBoatSpawner;
@@ -13,6 +19,8 @@ public class Player : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         playerShoot = GetComponent<PlayerShoot>();
         playerBoatSpawner = GetComponent<PlayerBoatSpawner>();
+
+        currentLife = maxLife;
     }
 
     private void Update()
@@ -21,5 +29,10 @@ public class Player : MonoBehaviour
         playerShoot.Aim();
         playerShoot.HandleShoot();
         playerBoatSpawner.HandleBoatSpawn();
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentLife -= damage;
     }
 }

@@ -5,7 +5,22 @@ using UnityEngine;
 public class PlayerInputShoot : PlayerShoot
 {
     [SerializeField]
+    private PlayerData playerData;
+
     private KeyCode leftKey, rightKey, shootKey;
+
+    public void SetKeys(KeyCode left, KeyCode right, KeyCode shoot)
+    {
+        leftKey = left;
+        rightKey = right;
+        shootKey = shoot;
+    }
+
+    protected override void Init()
+    {
+        base.Init();
+        SetKeys(playerData.Left, playerData.Right, playerData.Shoot);
+    }
 
     protected override float AimDirection()
     {

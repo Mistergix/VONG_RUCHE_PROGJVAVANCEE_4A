@@ -67,6 +67,7 @@ public abstract class PlayerShoot : MonoBehaviour
         bulletLineRenderer.transform.parent = null;
         bulletLineRenderer.transform.position = Vector3.zero;
         bulletLineRenderer.positionCount = trajectoryPrecision;
+        bulletPool.transform.parent = null;
     }
 
     protected virtual void Init() { }
