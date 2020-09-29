@@ -15,8 +15,6 @@ public class Boat : MonoBehaviour
     [SerializeField]
     private LayerMask playerMask, wallMask, boatMask;
 
-    public int Id { get; set; }
-
     // Start is called before the first frame update
     void Start()
     {

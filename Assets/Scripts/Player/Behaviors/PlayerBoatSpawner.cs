@@ -18,9 +18,6 @@ public abstract class PlayerBoatSpawner : MonoBehaviour
 
     private bool isLeft;
 
-    
-    public int Id { get; set; }
-
     public virtual void Init()
     {
         canSpawn = true;
@@ -69,6 +66,5 @@ public abstract class PlayerBoatSpawner : MonoBehaviour
 
         boat.IsLeft = isLeft;
         boat.transform.position = boatSpawn.position;
-        boat.GetComponent<Boat>().Id = Id;
     }
 }

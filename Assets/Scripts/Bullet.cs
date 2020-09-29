@@ -18,8 +18,8 @@ public class Bullet : MonoBehaviour
 
     [SerializeField]
     private LayerMask boatMask;
-    public int Id { get { return m_id; } set { m_id = value; } }
-    public int m_id;
+
+
     private void OnEnable()
     {
         StartCoroutine(Recycle(timeToEnd + 1));
@@ -59,7 +59,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision) {
         if ((boatMask.value & 1 << collision.gameObject.layer) > 0) {
-            if (Id != collision.gameObject.GetComponent<Boat>().Id) {
+            if (isLeft != collision.gameObject.GetComponent<Boat>().IsLeft) {
                 PoolManager.RecycleGameObject(collision.gameObject);
                 PoolManager.RecycleGameObject(gameObject);
             } else {
