@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int maxLife;
 
+    
+
     private int currentLife;
 
     private PlayerMovement playerMovement;
@@ -18,6 +20,13 @@ public class Player : MonoBehaviour
     public bool IsLeft { get => PlayerDataInstance.IsLeft; }
     public PlayerData PlayerDataInstance { get => playerData; set => playerData = value; }
 
+    [SerializeField]
+    private int m_id;
+    public int Id {
+        get { return m_id; }
+        set { m_id = value; }
+    }
+    
     public void Init(PlayerData playerData)
     {
         PlayerDataInstance = playerData;
@@ -25,6 +34,8 @@ public class Player : MonoBehaviour
         playerShoot = GetComponent<PlayerShoot>();
         playerBoatSpawner = GetComponent<PlayerBoatSpawner>();
 
+        playerBoatSpawner.GetComponent<PlayerShoot>().Id = Id;
+        playerBoatSpawner.GetComponent<PlayerBoatSpawner>().Id = Id;
         currentLife = maxLife;
 
         playerMovement.Init();

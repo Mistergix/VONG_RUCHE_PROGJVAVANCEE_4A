@@ -107,7 +107,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff6dec703c845944abc888c370b0af69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToEnd: 2
+  timeToEnd: 1
+  boatMask:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!54 &2468702179732626765
 Rigidbody:
   m_ObjectHideFlags: 0

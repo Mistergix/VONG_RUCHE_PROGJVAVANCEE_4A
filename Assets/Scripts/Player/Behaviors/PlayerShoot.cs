@@ -31,6 +31,7 @@ public abstract class PlayerShoot : MonoBehaviour
     private Vector3 parabola;
 
     private bool isLeft;
+    public int Id { get; set; }
 
     private void Visualize()
     {
@@ -143,6 +144,7 @@ public abstract class PlayerShoot : MonoBehaviour
         GameObject bullet = bulletPool.RequestACopy();
 
         bullet.GetComponent<Bullet>().Initialize(parabola, bulletSpawn.position, BulletLandSpot(), isLeft);
+        bullet.GetComponent<Bullet>().Id = Id;
     }
 
     private IEnumerator Shoot()

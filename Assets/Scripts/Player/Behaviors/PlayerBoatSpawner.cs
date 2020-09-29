@@ -18,11 +18,13 @@ public abstract class PlayerBoatSpawner : MonoBehaviour
 
     private bool isLeft;
 
+    
+    public int Id { get; set; }
+
     public virtual void Init()
     {
         canSpawn = true;
         boatPool.transform.parent = null;
-
         isLeft = GetComponent<Player>().IsLeft;
     }
 
@@ -58,7 +60,7 @@ public abstract class PlayerBoatSpawner : MonoBehaviour
     {
         GameObject boatGo = boatPool.RequestACopy();
         boatGo.transform.position = new Vector3(boatSpawn.position.x, 0, boatSpawn.position.z);
-        BoatForwardBehavior forwardBe =  boatGo.AddComponent<BoatForwardBehavior>();
+        BoatForwardBehavior forwardBe = boatGo.AddComponent<BoatForwardBehavior>();
 
         forwardBe.Speed = boatSpeed;
         forwardBe.Priority = 10;
@@ -66,5 +68,7 @@ public abstract class PlayerBoatSpawner : MonoBehaviour
         Boat boat = boatGo.GetComponent<Boat>();
 
         boat.IsLeft = isLeft;
+        boat.transform.position = boatSpawn.position;
+        boat.GetComponent<Boat>().Id = Id;
     }
 }
