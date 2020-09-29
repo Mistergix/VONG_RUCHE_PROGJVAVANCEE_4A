@@ -5,6 +5,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField]
+    private PlayerData playerData;
+    
+    [SerializeField]
     private int maxLife;
 
     private int currentLife;
@@ -13,6 +16,8 @@ public class Player : MonoBehaviour
     private PlayerMovement playerMovement;
     private PlayerShoot playerShoot;
     private PlayerBoatSpawner playerBoatSpawner;
+
+    public bool IsLeft { get => playerData.IsLeft; }
 
     private void Start()
     {

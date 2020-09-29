@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PlayerRandomBoatSpawner : PlayerBoatSpawner
 {
+    [SerializeField]
+    [Range(0, 1)]
+    private float spawnProba = 0.5f;
     protected override bool ShouldSpawn()
     {
-        throw new System.NotImplementedException();
+        return spawnProba > Random.value;
     }
 }

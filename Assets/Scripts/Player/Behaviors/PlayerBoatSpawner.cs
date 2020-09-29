@@ -14,11 +14,15 @@ public abstract class PlayerBoatSpawner : MonoBehaviour
 
     private bool canSpawn;
 
+    private bool isLeft;
+
     private void Start()
     {
         Init();
         canSpawn = true;
         boatPool.transform.parent = null;
+
+        isLeft = GetComponent<Player>().IsLeft;
     }
 
     protected virtual void Init()
@@ -58,5 +62,7 @@ public abstract class PlayerBoatSpawner : MonoBehaviour
     {
         GameObject boat = boatPool.RequestACopy();
         boat.transform.position = boatSpawn.position;
+
+        boat.GetComponent<Boat>().IsLeft = isLeft;
     }
 }

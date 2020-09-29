@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class PlayerRandomShooter : PlayerShoot
 {
+    [SerializeField]
+    [Range(0, 1)]
+    private float shootProba = 0.5f;
     protected override float AimDirection()
     {
-        throw new System.NotImplementedException();
+        return Random.Range(-1, 2);
     }
 
     protected override bool ShouldShoot()
     {
-        throw new System.NotImplementedException();
+        return shootProba > Random.value;
     }
 }

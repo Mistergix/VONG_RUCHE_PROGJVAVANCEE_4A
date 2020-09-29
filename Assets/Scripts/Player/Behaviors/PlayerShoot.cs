@@ -30,6 +30,8 @@ public abstract class PlayerShoot : MonoBehaviour
 
     private Vector3 parabola;
 
+    private bool isLeft;
+
     private void Visualize()
     {
         Vector3[] positions = new Vector3[trajectoryPrecision];
@@ -68,6 +70,8 @@ public abstract class PlayerShoot : MonoBehaviour
         bulletLineRenderer.transform.position = Vector3.zero;
         bulletLineRenderer.positionCount = trajectoryPrecision;
         bulletPool.transform.parent = null;
+
+        isLeft = GetComponent<Player>().IsLeft;
     }
 
     protected virtual void Init() { }
@@ -103,6 +107,11 @@ public abstract class PlayerShoot : MonoBehaviour
             sign = Math.Sign(AimDirection());
         }
 
+        if(! isLeft)
+        {
+            sign *= -1;
+        }
+
 
         AimQuantity += sign * aimSpeed * Time.deltaTime;
 
@@ -132,7 +141,7 @@ public abstract class PlayerShoot : MonoBehaviour
     {
         GameObject bullet = bulletPool.RequestACopy();
 
-        bullet.GetComponent<Bullet>().Initialize(parabola, bulletSpawn.position, BulletLandSpot());
+        bullet.GetComponent<Bullet>().Initialize(parabola, bulletSpawn.position, BulletLandSpot(), isLeft);
     }
 
     private IEnumerator Shoot()

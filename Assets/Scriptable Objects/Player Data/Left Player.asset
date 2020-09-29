@@ -18,3 +18,4 @@ MonoBehaviour:
   right: 100
   shoot: 97
   spawn: 101
+  isLeft: 1

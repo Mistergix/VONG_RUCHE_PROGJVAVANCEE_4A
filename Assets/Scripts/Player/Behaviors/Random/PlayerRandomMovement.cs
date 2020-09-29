@@ -6,6 +6,6 @@ public class PlayerRandomMovement : PlayerMovement
 {
     protected override Vector3 Direction()
     {
-        throw new System.NotImplementedException();
+        return Random.value < 0.5f ? Vector3.forward : Vector3.back;
     }
 }

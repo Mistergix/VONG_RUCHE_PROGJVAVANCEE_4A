@@ -12,3 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e28f3a602c0904f4daccf7f1130fc7a7, type: 3}
   m_Name: Right Player
   m_EditorClassIdentifier: 
+  up: 105
+  down: 107
+  left: 106
+  right: 108
+  shoot: 117
+  spawn: 111

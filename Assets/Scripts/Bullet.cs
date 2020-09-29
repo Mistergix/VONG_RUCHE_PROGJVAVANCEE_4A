@@ -12,6 +12,10 @@ public class Bullet : MonoBehaviour
     private float x;
     private float speed;
 
+    private bool isLeft;
+
+    private float sign;
+
     private void OnEnable()
     {
         StartCoroutine(Recycle(timeToEnd + 1));
@@ -24,17 +28,21 @@ public class Bullet : MonoBehaviour
         PoolManager.RecycleGameObject(gameObject);
     }
 
-    public void Initialize(Vector3 parabola, Vector3 start, Vector3 end)
+    public void Initialize(Vector3 parabola, Vector3 start, Vector3 end, bool isLeft)
     {
         this.parabola = parabola;
         transform.position = start;
         x = transform.position.x;
         speed = Mathf.Abs(end.x - start.x) / timeToEnd;
+
+        this.isLeft = isLeft;
+
+        sign = isLeft ? 1 : -1;
     }
 
     private void Update()
     {
-        x += speed * Time.deltaTime;
+        x += sign * speed * Time.deltaTime;
         float y = Geometry.CalulateParabolaWithTurningPoint(parabola, x);
 
         transform.position = new Vector3(x, y, transform.position.z);

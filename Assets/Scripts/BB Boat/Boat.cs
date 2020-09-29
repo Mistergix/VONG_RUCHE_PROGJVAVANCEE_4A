@@ -9,6 +9,8 @@ public class Boat : MonoBehaviour
     [SerializeField]
     private bool isLeft;
 
+    public bool IsLeft { get => isLeft; set => isLeft = value; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +28,7 @@ public class Boat : MonoBehaviour
     }
 
     public Vector3 Direction() {
-        if (isLeft) {
+        if (IsLeft) {
             return Vector3.right;
         } else {
             return Vector3.left;
