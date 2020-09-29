@@ -27,7 +27,7 @@ public class SceneLoading : MonoBehaviour
         SceneManager.LoadScene(gameOverScene);
     }
 
-    public void OnApplicationQuit() {
+    public void Quit() {
         Application.Quit();
     }
 }
