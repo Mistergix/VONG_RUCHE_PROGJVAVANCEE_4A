@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class PlayerInputMovement : PlayerMovement
 {
+    [SerializeField]
+    private PlayerData playerData;
+
     private KeyCode upKey, downKey;
 
     public void SetKeys(KeyCode up, KeyCode down)
     {
         upKey = up;
         downKey = down;
+    }
+
+    protected override void Init()
+    {
+        base.Init();
+        SetKeys(playerData.Up, playerData.Down);
     }
 
     protected override Vector3 Direction()

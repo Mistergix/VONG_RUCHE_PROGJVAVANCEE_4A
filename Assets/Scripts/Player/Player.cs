@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField]
-    private PlayerData playerData;
-
     private PlayerMovement playerMovement;
     private PlayerShoot playerShoot;
     private PlayerBoatSpawner playerBoatSpawner;
