@@ -18,13 +18,20 @@ public class Player : MonoBehaviour
     private PlayerBoatSpawner playerBoatSpawner;
 
     public bool IsLeft { get => playerData.IsLeft; }
-
+    [SerializeField]
+    public int Id {
+        get { return m_id; }
+        set { m_id = value; }
+    }
+    public int m_id;
     private void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
         playerShoot = GetComponent<PlayerShoot>();
         playerBoatSpawner = GetComponent<PlayerBoatSpawner>();
 
+        playerBoatSpawner.GetComponent<PlayerShoot>().Id = Id;
+        playerBoatSpawner.GetComponent<PlayerBoatSpawner>().Id = Id;
         currentLife = maxLife;
     }
 

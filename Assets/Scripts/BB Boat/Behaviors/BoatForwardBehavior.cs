@@ -9,7 +9,7 @@ public class BoatForwardBehavior : BoatBehavior
     private Boat boat;
 
     public float Speed { get => speed; set => speed = value; }
-
+ 
     private void Start() {
         boat = GetComponent<Boat>();
     }

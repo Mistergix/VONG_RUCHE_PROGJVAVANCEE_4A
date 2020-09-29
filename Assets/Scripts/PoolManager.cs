@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,9 @@ public class PoolManager : MonoBehaviour
 	[SerializeField]
 	private int numberOfInstancesAtStart;
     private List<GameObject> copies;
+
+    public int Id { get; set; }
+
     private void Start()
     {
         copies = new List<GameObject>();
