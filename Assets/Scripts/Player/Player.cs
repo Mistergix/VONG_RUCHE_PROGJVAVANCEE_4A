@@ -39,5 +39,8 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentLife -= damage;
+        if (currentLife <= 0) {
+            gameObject.SetActive(false);
+        }
     }
 }
