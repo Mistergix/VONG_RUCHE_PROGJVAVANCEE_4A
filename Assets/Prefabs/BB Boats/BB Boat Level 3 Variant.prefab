@@ -78,7 +78,7 @@ PrefabInstance:
     - target: {fileID: 5135709438081463124, guid: 8d3fc097d994f5d4bb0c7bd4bf01296b,
         type: 3}
       propertyPath: m_Name
-      value: BB Boat Level 3
+      value: BB Boat Level 3 Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d3fc097d994f5d4bb0c7bd4bf01296b, type: 3}

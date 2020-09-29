@@ -23,7 +23,7 @@ PrefabInstance:
     - target: {fileID: 8127405164730444840, guid: 97c126c578741754fb3fbcaad18a47e4,
         type: 3}
       propertyPath: m_Name
-      value: BB Boat Level 2
+      value: BB Boat Level 2 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8127405164730444844, guid: 97c126c578741754fb3fbcaad18a47e4,
         type: 3}
