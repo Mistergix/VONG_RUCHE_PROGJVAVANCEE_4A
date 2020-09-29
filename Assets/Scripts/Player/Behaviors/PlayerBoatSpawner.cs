@@ -18,6 +18,7 @@ public abstract class PlayerBoatSpawner : MonoBehaviour
     {
         Init();
         canSpawn = true;
+        boatPool.transform.parent = null;
     }
 
     protected virtual void Init()
