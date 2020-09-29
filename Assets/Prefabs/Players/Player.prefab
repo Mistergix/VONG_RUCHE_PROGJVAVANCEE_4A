@@ -341,7 +341,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4834160500933116159}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_Children:
   - {fileID: 368573457}
@@ -425,7 +425,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5d031e524618ef489284be90da8fb9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData: {fileID: 0}
   maxLife: 5
 --- !u!114 &2121524940
 MonoBehaviour:
@@ -455,7 +454,7 @@ MonoBehaviour:
   shootCoolDown: 1.5
   aimSpeed: 1
   bulletHeight: 4
-  trajectoryPrecision: 10
+  trajectoryPrecision: 100
   bulletPool: {fileID: 612274040}
   aimStart: {fileID: 368573457}
   aimEnd: {fileID: 297566700}

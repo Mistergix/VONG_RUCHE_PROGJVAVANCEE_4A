@@ -9,7 +9,7 @@ public class PoolManager : MonoBehaviour
 	[SerializeField]
 	private int numberOfInstancesAtStart;
     private List<GameObject> copies;
-    private void Start()
+    private void Awake()
     {
         copies = new List<GameObject>();
         for (int i = 0; i < numberOfInstancesAtStart; i++)
