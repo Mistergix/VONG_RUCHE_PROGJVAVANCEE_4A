@@ -9,6 +9,9 @@ public class Boat : MonoBehaviour
     [SerializeField]
     private bool isLeft;
 
+    [SerializeField]
+    private LayerMask playerMask;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +33,13 @@ public class Boat : MonoBehaviour
             return Vector3.right;
         } else {
             return Vector3.left;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision) {
+        if ((playerMask.value & (1 << collision.gameObject.layer)) > 0) {
+            collision.gameObject.GetComponent<Player>().TakeDamage(1);
+            PoolManager.RecycleGameObject(gameObject);
         }
     }
 }
