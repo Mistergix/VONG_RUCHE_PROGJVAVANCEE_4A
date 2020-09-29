@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField]
     private PlayerData playerData;
     
     [SerializeField]
@@ -12,20 +11,25 @@ public class Player : MonoBehaviour
 
     private int currentLife;
 
-
     private PlayerMovement playerMovement;
     private PlayerShoot playerShoot;
     private PlayerBoatSpawner playerBoatSpawner;
 
-    public bool IsLeft { get => playerData.IsLeft; }
+    public bool IsLeft { get => PlayerDataInstance.IsLeft; }
+    public PlayerData PlayerDataInstance { get => playerData; set => playerData = value; }
 
-    private void Start()
+    public void Init(PlayerData playerData)
     {
+        PlayerDataInstance = playerData;
         playerMovement = GetComponent<PlayerMovement>();
         playerShoot = GetComponent<PlayerShoot>();
         playerBoatSpawner = GetComponent<PlayerBoatSpawner>();
 
         currentLife = maxLife;
+
+        playerMovement.Init();
+        playerShoot.Init();
+        playerBoatSpawner.Init();
     }
 
     private void Update()

@@ -59,10 +59,7 @@ public abstract class PlayerShoot : MonoBehaviour
             aimQuantity = Mathf.Clamp01(value);
         } }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        Init();
+    public virtual void Init() {
         canShoot = true;
         AimQuantity = 0;
         parabola = Vector3.zero;
@@ -72,9 +69,13 @@ public abstract class PlayerShoot : MonoBehaviour
         bulletPool.transform.parent = null;
 
         isLeft = GetComponent<Player>().IsLeft;
-    }
 
-    protected virtual void Init() { }
+        if(! isLeft)
+        {
+            aimStart.localPosition = new Vector3(-aimStart.localPosition.x, aimStart.localPosition.y, aimStart.localPosition.z);
+            aimEnd.localPosition = new Vector3(-aimEnd.localPosition.x, aimEnd.localPosition.y, aimEnd.localPosition.z);
+        }
+    }
 
     protected abstract bool ShouldShoot();
     protected abstract float AimDirection();

@@ -10,12 +10,7 @@ public abstract class PlayerMovement : MonoBehaviour
 
     public float Speed { get => speed; private set => speed = value; }
 
-    void Start()
-    {
-        Init();
-    }
-
-    protected virtual void Init()
+    public virtual void Init()
     {
 
     }

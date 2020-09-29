@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerInputBoatSpawner : PlayerBoatSpawner
 {
-    [SerializeField]
     private PlayerData playerData;
 
     private KeyCode spawnKey;
@@ -14,9 +13,10 @@ public class PlayerInputBoatSpawner : PlayerBoatSpawner
         spawnKey = spawn;
     }
 
-    protected override void Init()
+    public override void Init()
     {
         base.Init();
+        playerData = GetComponent<Player>().PlayerDataInstance;
         SetKeys(playerData.Spawn);
     }
 

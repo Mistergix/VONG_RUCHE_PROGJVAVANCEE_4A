@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b6ce6ae308c1548af421a8b3b32d9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boatSpeed: 4
   spawnCoolDown: 2
   boatPool: {fileID: 637757087850874423}
   boatSpawn: {fileID: 637757088662589108}
@@ -71,8 +72,7 @@ PrefabInstance:
     - target: {fileID: 2121524939, guid: fd34c88930f0ed24e9da15cd2798694b, type: 3}
       propertyPath: playerData
       value: 
-      objectReference: {fileID: 11400000, guid: 4c7106b1a8582214591801569752f4f8,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 4834160500933116155, guid: fd34c88930f0ed24e9da15cd2798694b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -131,7 +131,7 @@ PrefabInstance:
     - target: {fileID: 4834160500933116159, guid: fd34c88930f0ed24e9da15cd2798694b,
         type: 3}
       propertyPath: m_Name
-      value: Random Player
+      value: Random Player Variant
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2121524940, guid: fd34c88930f0ed24e9da15cd2798694b, type: 3}

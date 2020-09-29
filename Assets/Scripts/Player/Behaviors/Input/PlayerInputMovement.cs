@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerInputMovement : PlayerMovement
 {
-    [SerializeField]
     private PlayerData playerData;
 
     private KeyCode upKey, downKey;
@@ -15,9 +14,10 @@ public class PlayerInputMovement : PlayerMovement
         downKey = down;
     }
 
-    protected override void Init()
+    public override void Init()
     {
         base.Init();
+        playerData = GetComponent<Player>().PlayerDataInstance;
         SetKeys(playerData.Up, playerData.Down);
     }
 

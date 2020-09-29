@@ -18,18 +18,12 @@ public abstract class PlayerBoatSpawner : MonoBehaviour
 
     private bool isLeft;
 
-    private void Start()
+    public virtual void Init()
     {
-        Init();
         canSpawn = true;
         boatPool.transform.parent = null;
 
         isLeft = GetComponent<Player>().IsLeft;
-    }
-
-    protected virtual void Init()
-    {
-        
     }
 
     protected abstract bool ShouldSpawn();

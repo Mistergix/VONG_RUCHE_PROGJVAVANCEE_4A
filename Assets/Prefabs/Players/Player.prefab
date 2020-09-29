@@ -425,6 +425,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5d031e524618ef489284be90da8fb9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 0}
+  maxLife: 5
 --- !u!114 &2121524940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,8 +440,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  upKey: 122
-  downKey: 115
 --- !u!114 &2121524941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -463,9 +463,6 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1187598636018120116, guid: 561ed7a73a2191e46bdba22d6479c9f0,
     type: 3}
   bulletLineRenderer: {fileID: 1696482433}
-  leftKey: 113
-  rightKey: 100
-  shootKey: 97
 --- !u!114 &3380513781738650512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -478,7 +475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8782bfa3268f9c8429c2df7c691c7d1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boatSpeed: 4
   spawnCoolDown: 2
   boatPool: {fileID: 622441618}
   boatSpawn: {fileID: 368573457}
-  spawnKey: 101

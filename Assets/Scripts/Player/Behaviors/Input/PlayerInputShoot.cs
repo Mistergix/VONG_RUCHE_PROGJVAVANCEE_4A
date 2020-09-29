@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerInputShoot : PlayerShoot
 {
-    [SerializeField]
     private PlayerData playerData;
 
     private KeyCode leftKey, rightKey, shootKey;
@@ -16,9 +15,10 @@ public class PlayerInputShoot : PlayerShoot
         shootKey = shoot;
     }
 
-    protected override void Init()
+    public override void Init()
     {
         base.Init();
+        playerData = GetComponent<Player>().PlayerDataInstance;
         SetKeys(playerData.Left, playerData.Right, playerData.Shoot);
     }
 
