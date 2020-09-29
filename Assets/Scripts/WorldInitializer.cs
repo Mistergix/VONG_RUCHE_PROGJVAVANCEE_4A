@@ -10,6 +10,9 @@ public class WorldInitializer : MonoBehaviour
     [SerializeField]
     private Transform leftSpawn, rightSpawn;
 
+    [SerializeField]
+    private GameOver gameOverManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +21,8 @@ public class WorldInitializer : MonoBehaviour
 
         lPlayer.GetComponent<Player>().Init(initializationData.LeftPlayerData);
         rPlayer.GetComponent<Player>().Init(initializationData.RightPlayerData);
+
+        gameOverManager.Init(lPlayer.GetComponent<Player>(), rPlayer.GetComponent<Player>());
     }
 
     // Update is called once per frame

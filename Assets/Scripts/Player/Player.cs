@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     private int maxLife;
 
     
-
+    public int CurrentLife { get => currentLife; private set { currentLife = value; } }
     private int currentLife;
 
     private PlayerMovement playerMovement;
