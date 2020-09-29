@@ -15,7 +15,7 @@ MonoBehaviour:
   shootCoolDown: 1.5
   aimSpeed: 1
   bulletHeight: 4
-  trajectoryPrecision: 10
+  trajectoryPrecision: 20
   bulletPool: {fileID: 637757087865241053}
   aimStart: {fileID: 637757088662589108}
   aimEnd: {fileID: 637757088733590345}
@@ -63,7 +63,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 297566700, guid: fd34c88930f0ed24e9da15cd2798694b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 368573457, guid: fd34c88930f0ed24e9da15cd2798694b, type: 3}
       propertyPath: m_LocalPosition.x
