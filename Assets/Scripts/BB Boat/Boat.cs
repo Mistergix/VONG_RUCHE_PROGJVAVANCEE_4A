@@ -9,12 +9,11 @@ public class Boat : MonoBehaviour
     [SerializeField]
     private bool isLeft;
 
-<<<<<<< HEAD
+
     public bool IsLeft { get => isLeft; set => isLeft = value; }
-=======
+
     [SerializeField]
     private LayerMask playerMask;
->>>>>>> DamagePlayers
 
     // Start is called before the first frame update
     void Start()
