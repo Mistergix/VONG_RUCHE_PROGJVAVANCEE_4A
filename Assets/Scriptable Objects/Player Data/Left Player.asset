@@ -19,3 +19,7 @@ MonoBehaviour:
   shoot: 97
   spawn: 101
   isLeft: 1
+  takeDamageEvent: {fileID: 11400000, guid: 9f166cb3b854cc64a8ddde4a0f4b6b50, type: 2}
+  shootEvent: {fileID: 11400000, guid: 5217f529a4d16e44aac1694e05648a18, type: 2}
+  spawnEvent: {fileID: 11400000, guid: 8a677932d4e9f7942af7f608cc60ae2d, type: 2}
+  boatBorderEvent: {fileID: 11400000, guid: 7d8a048d6e162714cb28c1512f3ca22b, type: 2}

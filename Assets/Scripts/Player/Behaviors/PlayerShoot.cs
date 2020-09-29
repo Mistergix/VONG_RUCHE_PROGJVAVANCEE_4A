@@ -32,6 +32,8 @@ public abstract class PlayerShoot : MonoBehaviour
 
     private bool isLeft;
 
+    private PlayerData playerData;
+
     private void Visualize()
     {
         Vector3[] positions = new Vector3[trajectoryPrecision];
@@ -68,7 +70,10 @@ public abstract class PlayerShoot : MonoBehaviour
         bulletLineRenderer.positionCount = trajectoryPrecision;
         bulletPool.transform.parent = null;
 
-        isLeft = GetComponent<Player>().IsLeft;
+        Player player = GetComponent<Player>();
+
+        isLeft = player.IsLeft;
+        playerData = player.PlayerDataInstance;
 
         if(! isLeft)
         {
@@ -150,6 +155,8 @@ public abstract class PlayerShoot : MonoBehaviour
         canShoot = false;
 
         InstantiateBullet();
+
+        playerData.ShootEvent.Raise();
 
         yield return new WaitForSeconds(shootCoolDown);
 

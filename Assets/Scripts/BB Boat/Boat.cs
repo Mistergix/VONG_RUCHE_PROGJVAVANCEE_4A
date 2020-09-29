@@ -9,8 +9,11 @@ public class Boat : MonoBehaviour
     [SerializeField]
     private bool isLeft;
 
+    private GameEvent onBorderPasseEvent;
+
 
     public bool IsLeft { get => isLeft; set => isLeft = value; }
+    public GameEvent OnBorderPassedEvent { get => onBorderPasseEvent; set => onBorderPasseEvent = value; }
 
     [SerializeField]
     private LayerMask playerMask, wallMask, boatMask;
@@ -44,6 +47,7 @@ public class Boat : MonoBehaviour
             collision.gameObject.GetComponent<Player>().TakeDamage(1);
             PoolManager.RecycleGameObject(gameObject);
         } else if ((wallMask.value & (1 << collision.gameObject.layer)) > 0) {
+            OnBorderPassedEvent.Raise();
             PoolManager.RecycleGameObject(gameObject);
         } else if ((boatMask.value & (1 << collision.gameObject.layer)) > 0) {
             PoolManager.RecycleGameObject(collision.gameObject);
