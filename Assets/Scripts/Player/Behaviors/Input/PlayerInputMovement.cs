@@ -21,18 +21,18 @@ public class PlayerInputMovement : PlayerMovement
         SetKeys(playerData.Up, playerData.Down);
     }
 
-    protected override Vector3 Direction()
+    protected override float UpDirection()
     {
-        if(Input.GetKey(upKey))
+        if (Input.GetKey(upKey))
         {
-            return Vector3.forward;
+            return 1;
         }
 
-        if(Input.GetKey(downKey))
+        if (Input.GetKey(downKey))
         {
-            return Vector3.back;
+            return -1;
         }
 
-        return Vector3.zero;
+        return 0;
     }
 }

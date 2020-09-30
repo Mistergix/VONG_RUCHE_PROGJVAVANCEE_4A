@@ -4,8 +4,20 @@ using UnityEngine;
 
 public class PlayerRandomMovement : PlayerMovement
 {
-    protected override Vector3 Direction()
+    protected override float UpDirection()
     {
-        return Random.value < 0.5f ? Vector3.forward : Vector3.back;
+        float value = Random.value;
+
+        if(value < 1f/3)
+        {
+            return 0;
+        }
+
+        if(value < 2f/3)
+        {
+            return 1;
+        }
+
+        return -1;
     }
 }

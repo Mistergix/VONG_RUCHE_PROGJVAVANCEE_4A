@@ -18,6 +18,14 @@ public abstract class PlayerMovement : MonoBehaviour
     private float moveQuantity;
 
     public float Speed { get => speed; private set => speed = value; }
+    public float MoveQuantity { get => moveQuantity; private set => moveQuantity = Mathf.Clamp01(value); }
+
+    public static float InverseLerp(Vector3 a, Vector3 b, Vector3 value)
+    {
+        Vector3 AB = b - a;
+        Vector3 AV = value - a;
+        return Vector3.Dot(AV, AB) / Vector3.Dot(AB, AB);
+    }
 
     public virtual void Init()
     {
@@ -30,16 +38,20 @@ public abstract class PlayerMovement : MonoBehaviour
 
         moveMin.position = new Vector3(transform.position.x, transform.position.y, bottom.z);
         moveMax.position = new Vector3(transform.position.x, transform.position.y, top.z);
+
+        MoveQuantity = InverseLerp(moveMin.position, moveMax.position, transform.position);
+
+        moveMin.transform.parent = null;
+        moveMax.transform.parent = null;
     }
 
-    private void Update()
-    {
-    }
-
-    protected abstract Vector3 Direction();
+    protected abstract float UpDirection();
 
     internal void HandleMove()
     {
-        transform.position += Direction().normalized * speed * Time.deltaTime;
+
+        MoveQuantity += UpDirection() * speed * Time.deltaTime;
+
+        transform.position = Vector3.Lerp(moveMin.position, moveMax.position, MoveQuantity);
     }
 }
