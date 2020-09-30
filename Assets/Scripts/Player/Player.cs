@@ -21,6 +21,15 @@ public class Player : MonoBehaviour
     public float SpawnCoolDown { get => playerBoatSpawner.SpawnCooldown; }
     public int Level { get => level; private set => level = value; }
 
+    public float ShootX { get => playerShoot.XMax; }
+
+    public void OverHeal()
+    {
+        MaxLife++;
+        CurrentLife++;
+        PlayerDataInstance.TakeDamageEvent.Raise();
+    }
+
     public void Init(PlayerData playerData)
     {
         PlayerDataInstance = playerData;

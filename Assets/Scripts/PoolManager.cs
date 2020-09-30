@@ -9,6 +9,7 @@ public class PoolManager : MonoBehaviour
     private GameObject _referencePrefab;
 	[SerializeField]
 	private int numberOfInstancesAtStart;
+
     private List<GameObject> copies;
 
     public int Id { get; set; }
@@ -16,17 +17,38 @@ public class PoolManager : MonoBehaviour
     private void Awake()
     {
         copies = new List<GameObject>();
-        for (int i = 0; i < numberOfInstancesAtStart; i++)
-        {
-            GameObject go = Instantiate(_referencePrefab, transform);
-            go.SetActive(false);
-            copies.Add(go);
-        }
+
+        AddNewCopies();
     }
 
     public GameObject RequestACopy()
     {
         return _RequestACopy();
+    }
+
+    /// <summary>
+    /// Instantiates new copies, returns one of the object
+    /// </summary>
+    /// <returns></returns>
+    private GameObject AddNewCopies(bool active = false, bool verbose = false)
+    {
+        GameObject go = new GameObject("TMP POOL OBJECT");
+
+        for (int i = 0; i < numberOfInstancesAtStart; i++)
+        {
+            go = Instantiate(_referencePrefab, transform);
+            go.SetActive(false);
+            copies.Add(go);
+        }
+
+        if(verbose)
+        {
+            Debug.Log("Added " + numberOfInstancesAtStart + " objects in " + gameObject + "Pool");
+        }
+
+        go.SetActive(active);
+
+        return go;
     }
 
     private GameObject _RequestACopy()
@@ -40,10 +62,7 @@ public class PoolManager : MonoBehaviour
             }
         }
 
-        GameObject go = Instantiate(_referencePrefab, transform);
-        copies.Add(go);
-
-        return go;
+        return AddNewCopies(true, true);
     }
 
     public static void RecycleGameObject(GameObject go)

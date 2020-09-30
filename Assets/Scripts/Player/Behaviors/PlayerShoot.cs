@@ -32,6 +32,8 @@ public abstract class PlayerShoot : MonoBehaviour
 
     private bool isLeft;
 
+    Player player;
+
     private void Visualize()
     {
         Vector3[] positions = new Vector3[trajectoryPrecision];
@@ -59,6 +61,8 @@ public abstract class PlayerShoot : MonoBehaviour
             aimQuantity = Mathf.Clamp01(value);
         } }
 
+    public float XMax { get => aimEnd.position.x; }
+
     public PlayerData PlayerDataInstance { get; private set; }
     public float ShootCoolDown { get => shootCoolDown; private set => shootCoolDown = value; }
 
@@ -71,7 +75,7 @@ public abstract class PlayerShoot : MonoBehaviour
         bulletLineRenderer.positionCount = trajectoryPrecision;
         bulletPool.transform.parent = null;
 
-        Player player = GetComponent<Player>();
+        player = GetComponent<Player>();
 
         isLeft = player.IsLeft;
         PlayerDataInstance = player.PlayerDataInstance;
@@ -148,7 +152,7 @@ public abstract class PlayerShoot : MonoBehaviour
     {
         GameObject bullet = bulletPool.RequestACopy();
 
-        bullet.GetComponent<Bullet>().Initialize(parabola, bulletSpawn.position, BulletLandSpot(), isLeft);
+        bullet.GetComponent<Bullet>().Initialize(parabola, bulletSpawn.position, BulletLandSpot(), isLeft, player);
     }
 
     private IEnumerator Shoot()

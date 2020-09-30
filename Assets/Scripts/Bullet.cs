@@ -16,9 +16,12 @@ public class Bullet : MonoBehaviour
 
     private float sign;
 
+    private Player player;
+
     [SerializeField]
     private LayerMask boatMask;
 
+    public Player PlayerInstance { get => player; private set => player = value; }
 
     private void OnEnable()
     {
@@ -32,7 +35,7 @@ public class Bullet : MonoBehaviour
         PoolManager.RecycleGameObject(gameObject);
     }
 
-    public void Initialize(Vector3 parabola, Vector3 start, Vector3 end, bool isLeft)
+    public void Initialize(Vector3 parabola, Vector3 start, Vector3 end, bool isLeft, Player player)
     {
         this.parabola = parabola;
         transform.position = start;
@@ -42,6 +45,8 @@ public class Bullet : MonoBehaviour
         this.isLeft = isLeft;
 
         sign = isLeft ? 1 : -1;
+
+        this.PlayerInstance = player;
     }
 
     private void Update()
