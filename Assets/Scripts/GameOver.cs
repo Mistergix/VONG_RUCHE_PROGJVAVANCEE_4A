@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class GameOver : MonoBehaviour
 {
-    private Player leftBoat, rightBoat;
     [SerializeField]
-    private SceneLoading sceneLoader;
+    private GameEvent gameOver;
+
+    private Player leftBoat, rightBoat;
 
     public void Init(Player leftBoat, Player rightBoat) {
         this.leftBoat = leftBoat;
@@ -15,13 +16,13 @@ public class GameOver : MonoBehaviour
 
     public void CheckIfRightPlayerIsDead() {
         if (rightBoat.CurrentLife <= 0) {
-            sceneLoader.GameOver();
+            gameOver.Raise();
         }
     }
     
     public void CheckIfLeftPlayerIsDead() {
         if (leftBoat.CurrentLife <= 0) {
-            sceneLoader.GameOver();
+            gameOver.Raise();
         }
     }
 }

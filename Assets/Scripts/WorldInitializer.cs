@@ -16,6 +16,9 @@ public class WorldInitializer : MonoBehaviour
     [SerializeField]
     private GameOver gameOverManager;
 
+    [SerializeField]
+    private LevelManager levelManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +35,7 @@ public class WorldInitializer : MonoBehaviour
         rightUI.Init(rp);
 
         gameOverManager.Init(lp, rp);
+        levelManager.Init(lp, rp);
     }
 
     // Update is called once per frame

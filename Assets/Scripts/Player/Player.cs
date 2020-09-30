@@ -4,21 +4,18 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private PlayerData playerData;
-    
     [SerializeField]
     private int maxLife;
-
-    private int currentLife;
-
     private PlayerMovement playerMovement;
     private PlayerShoot playerShoot;
     private PlayerBoatSpawner playerBoatSpawner;
 
+    private int level;
+
     public bool IsLeft { get => PlayerDataInstance.IsLeft; }
-    public PlayerData PlayerDataInstance { get => playerData; set => playerData = value; }
+    public PlayerData PlayerDataInstance { get; set; }
     public int MaxLife { get => maxLife; private set => maxLife = value; }
-    public int CurrentLife { get => currentLife; private set => currentLife = value; }
+    public int CurrentLife { get; private set; }
 
     public float ShootCooldown { get => playerShoot.ShootCoolDown; }
     public float SpawnCoolDown { get => playerBoatSpawner.SpawnCooldown; }
@@ -34,6 +31,8 @@ public class Player : MonoBehaviour
         playerMovement.Init();
         playerShoot.Init();
         playerBoatSpawner.Init();
+
+        level = 1;
     }
 
     private void Update()
@@ -48,10 +47,15 @@ public class Player : MonoBehaviour
     {
         CurrentLife -= damage;
 
-        playerData.TakeDamageEvent.Raise();
+        PlayerDataInstance.TakeDamageEvent.Raise();
 
         if (CurrentLife <= 0) {
             gameObject.SetActive(false);
         }
+    }
+
+    public void LevelUp()
+    {
+        level++;
     }
 }
