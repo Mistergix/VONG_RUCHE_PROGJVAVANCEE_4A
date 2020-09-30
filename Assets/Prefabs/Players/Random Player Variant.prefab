@@ -53,6 +53,7 @@ MonoBehaviour:
   spawnCoolDown: 2
   boatPool: {fileID: 637757087850874423}
   boatSpawn: {fileID: 637757088662589108}
+  levelSystem: {fileID: 308882116190805430}
   spawnProba: 1
 --- !u!1001 &637757088471151269
 PrefabInstance:
@@ -190,5 +191,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0ce07c158d82e344836b99d13eee9c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &308882116190805430 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 905392938111561491, guid: fd34c88930f0ed24e9da15cd2798694b,
+    type: 3}
+  m_PrefabInstance: {fileID: 637757088471151269}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a412b45670ccf540904f4ad71c1ee38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

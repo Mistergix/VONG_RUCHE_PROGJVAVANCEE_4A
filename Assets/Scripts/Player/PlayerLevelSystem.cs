@@ -11,7 +11,7 @@ public class PlayerLevelSystem : MonoBehaviour
 
     private void Start()
     {
-        player = GetComponent<Player>();
+        player = GetComponentInParent<Player>();
     }
 
     public void LevelupBoat(Boat boat)
@@ -20,9 +20,28 @@ public class PlayerLevelSystem : MonoBehaviour
 
         int level = Mathf.Clamp(player.Level, 1, 3);
 
-        BoatForwardBehavior forwardBe = boatGo.AddComponent<BoatForwardBehavior>();
+        if (level >= 1 && ! boatGo.TryGetComponent(out BoatForwardBehavior boatForwardBehavior))
+        {
+            BoatForwardBehavior forwardBe = boatGo.AddComponent<BoatForwardBehavior>();
 
-        forwardBe.Speed = boatSpeed;
-        forwardBe.Priority = 10;
+            forwardBe.Speed = boatSpeed;
+            forwardBe.Priority = 10;
+        }
+
+
+        if (level >= 2 && !boatGo.TryGetComponent(out BoatDodgeBehavior boatDodgeBehavior1))
+        {
+            BoatDodgeBehavior boatDodgeBehavior = boatGo.AddComponent<BoatDodgeBehavior>();
+            boatDodgeBehavior.Priority = 1;
+        }
+
+        if(level >= 3 && !boatGo.TryGetComponent(out BoatShootBehavior boatShoot))
+        {
+            BoatShootBehavior boatShootBehavior = boatGo.AddComponent<BoatShootBehavior>();
+            boatShootBehavior.Priority = 5;
+        }
+
+        boat.Level = level;
+        boat.ResetBehavior();
     }
 }

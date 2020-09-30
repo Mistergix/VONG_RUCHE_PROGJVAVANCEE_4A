@@ -14,6 +14,7 @@ public abstract class PlayerBoatSpawner : MonoBehaviour
     [SerializeField]
     private Transform boatSpawn;
 
+    [SerializeField]
     private PlayerLevelSystem levelSystem;
 
     private bool canSpawn;
@@ -34,8 +35,6 @@ public abstract class PlayerBoatSpawner : MonoBehaviour
 
         isLeft = player.IsLeft;
         PlayerDataInstance = player.PlayerDataInstance;
-
-        levelSystem = GetComponent<PlayerLevelSystem>();
     }
 
     protected abstract bool ShouldSpawn();

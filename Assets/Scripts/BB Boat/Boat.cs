@@ -11,15 +11,28 @@ public class Boat : MonoBehaviour
 
     private GameEvent onBorderPasseEvent;
 
+    private int level;
+
 
     public bool IsLeft { get => isLeft; set => isLeft = value; }
     public GameEvent OnBorderPassedEvent { get => onBorderPasseEvent; set => onBorderPasseEvent = value; }
+    public int Level { get => level; set => level = value; }
 
     [SerializeField]
     private LayerMask playerMask, wallMask, boatMask;
 
+    private void Start()
+    {
+        Level = 0;
+    }
+
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
+    {
+        ResetBehavior();
+    }
+
+    public void ResetBehavior()
     {
         behaviors = GetComponentsInChildren<BoatBehavior>().ToList();
         behaviors.Sort(new BoatBehaviorComparer());
