@@ -7,6 +7,9 @@ public class BoatDodgeBehavior : BoatBehavior {
     private ZoneDetection zoneDetection;
 
     private void Start() {
+
+        zoneDetection = GetComponentInChildren<ZoneDetection>();
+
         boat = GetComponent<Boat>();
         if (boat.Direction().Equals(Vector3.left)) {
             float pos = zoneDetection.transform.localPosition.x;

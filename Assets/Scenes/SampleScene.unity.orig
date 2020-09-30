@@ -262,7 +262,10 @@ GameObject:
   m_Component:
   - component: {fileID: 433941483}
   - component: {fileID: 433941482}
+<<<<<<< HEAD
   - component: {fileID: 433941484}
+=======
+>>>>>>> f9331ecf3ba4ab8c74874645d1b4dcf29873821a
   m_Layer: 0
   m_Name: SceneLoader
   m_TagString: Untagged
@@ -299,6 +302,7 @@ Transform:
   m_Father: {fileID: 1691935444}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!114 &433941484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,6 +336,8 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6424274011415438226}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> f9331ecf3ba4ab8c74874645d1b4dcf29873821a
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,6 +557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea3b126cd4e3a394daee320c2116358d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
 --- !u!1001 &1276146452
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -558,10 +565,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1312179757, guid: 2ab73a74a4dad0d49aec4e17d8bf98b0, type: 3}
-      propertyPath: boatPerLevel
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 2671018360533840598, guid: 2ab73a74a4dad0d49aec4e17d8bf98b0,
         type: 3}
       propertyPath: m_Name
@@ -636,6 +639,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84cc4a78e4e9d6943a9e676ba62522e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+>>>>>>> f9331ecf3ba4ab8c74874645d1b4dcf29873821a
 --- !u!1 &1413340242
 GameObject:
   m_ObjectHideFlags: 0
