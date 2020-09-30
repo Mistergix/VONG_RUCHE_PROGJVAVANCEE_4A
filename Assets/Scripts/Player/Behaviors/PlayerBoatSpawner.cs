@@ -14,6 +14,8 @@ public abstract class PlayerBoatSpawner : MonoBehaviour
     [SerializeField]
     private Transform boatSpawn;
 
+    private PlayerLevelSystem levelSystem;
+
     private bool canSpawn;
 
     private bool isLeft;
@@ -32,6 +34,8 @@ public abstract class PlayerBoatSpawner : MonoBehaviour
 
         isLeft = player.IsLeft;
         PlayerDataInstance = player.PlayerDataInstance;
+
+        levelSystem = GetComponent<PlayerLevelSystem>();
     }
 
     protected abstract bool ShouldSpawn();
@@ -68,12 +72,10 @@ public abstract class PlayerBoatSpawner : MonoBehaviour
     {
         GameObject boatGo = boatPool.RequestACopy();
         boatGo.transform.position = new Vector3(boatSpawn.position.x, 0, boatSpawn.position.z);
-        BoatForwardBehavior forwardBe = boatGo.AddComponent<BoatForwardBehavior>();
-
-        forwardBe.Speed = boatSpeed;
-        forwardBe.Priority = 10;
 
         Boat boat = boatGo.GetComponent<Boat>();
+
+        levelSystem.LevelupBoat(boat);
 
         boat.IsLeft = isLeft;
         boat.OnBorderPassedEvent = PlayerDataInstance.BoatBorderEvent;

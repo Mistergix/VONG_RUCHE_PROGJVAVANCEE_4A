@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
 
     public float ShootCooldown { get => playerShoot.ShootCoolDown; }
     public float SpawnCoolDown { get => playerBoatSpawner.SpawnCooldown; }
+    public int Level { get => level; private set => level = value; }
 
     public void Init(PlayerData playerData)
     {
@@ -32,7 +33,7 @@ public class Player : MonoBehaviour
         playerShoot.Init();
         playerBoatSpawner.Init();
 
-        level = 1;
+        Level = 1;
     }
 
     private void Update()
@@ -56,6 +57,6 @@ public class Player : MonoBehaviour
 
     public void LevelUp()
     {
-        level++;
+        Level++;
     }
 }
