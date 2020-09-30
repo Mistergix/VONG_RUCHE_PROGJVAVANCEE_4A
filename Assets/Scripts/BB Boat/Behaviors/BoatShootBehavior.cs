@@ -5,7 +5,7 @@ using UnityEngine;
 public class BoatShootBehavior : BoatBehavior
 {
     /// <summary>
-    /// Fait apparaitre une balle toutes les X secondes. Utiliser le prefab Boat Bullet. Tu peux t'inspirer de PlayerShoot pour l'INSTANCIATION
+    /// Un tir avant le milieu, peut toucher les bébé bateaux ennemis et joueur
     /// </summary>
     public override void Execute()
     {

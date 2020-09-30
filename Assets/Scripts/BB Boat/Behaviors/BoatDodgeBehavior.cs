@@ -5,7 +5,7 @@ using UnityEngine;
 public class BoatDodgeBehavior : BoatBehavior
 {
     /// <summary>
-    /// UNE SEULE FOIS, si le bateau détecte un autre BB Boat ou un danger va à gauche ou a droite (on peut tirer un raycast devant pour détecter un objet )
+    /// UNE FOIS SI suffisament proche du joueur, se décale un peu pour essayer de le toucher
     /// </summary>
     public override void Execute()
     {
