@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1647311567118083017
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 454093267, guid: 7185807bed398ed479d6f8c41d21e5c7, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2604c0a75780252479a2b627077bc6e8, type: 3}
+    - target: {fileID: 252862932308375159, guid: 7185807bed398ed479d6f8c41d21e5c7,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.r
+      value: 0.7028302
+      objectReference: {fileID: 0}
+    - target: {fileID: 252862932308375159, guid: 7185807bed398ed479d6f8c41d21e5c7,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 252862932308375159, guid: 7185807bed398ed479d6f8c41d21e5c7,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.b
+      value: 0.98934674
+      objectReference: {fileID: 0}
+    - target: {fileID: 252862932308375159, guid: 7185807bed398ed479d6f8c41d21e5c7,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 252862932308375159, guid: 7185807bed398ed479d6f8c41d21e5c7,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 252862932308375159, guid: 7185807bed398ed479d6f8c41d21e5c7,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5295016730064599771, guid: 7185807bed398ed479d6f8c41d21e5c7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5295016730064599771, guid: 7185807bed398ed479d6f8c41d21e5c7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5295016730064599771, guid: 7185807bed398ed479d6f8c41d21e5c7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5295016730064599771, guid: 7185807bed398ed479d6f8c41d21e5c7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5295016730064599771, guid: 7185807bed398ed479d6f8c41d21e5c7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5295016730064599771, guid: 7185807bed398ed479d6f8c41d21e5c7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5295016730064599771, guid: 7185807bed398ed479d6f8c41d21e5c7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5295016730064599771, guid: 7185807bed398ed479d6f8c41d21e5c7,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5295016730064599771, guid: 7185807bed398ed479d6f8c41d21e5c7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5295016730064599771, guid: 7185807bed398ed479d6f8c41d21e5c7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5295016730064599771, guid: 7185807bed398ed479d6f8c41d21e5c7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6394861998149134291, guid: 7185807bed398ed479d6f8c41d21e5c7,
+        type: 3}
+      propertyPath: m_Name
+      value: Ploof
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7185807bed398ed479d6f8c41d21e5c7, type: 3}

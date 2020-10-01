@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
     private Vector3 parabola;
 
     [SerializeField]
-    private AudioSource explosionSource;
+    private GameObject explosionGameObject, ploufGameObject;
 
     private float x;
     private float speed;
@@ -23,26 +23,32 @@ public class Bullet : MonoBehaviour
 
     public Player PlayerInstance { get; private set; }
 
+    Coroutine recycleRoutine;
+
     private void Start()
     {
     }
 
     private void OnEnable()
     {
-        StartCoroutine(Recycle(timeToEnd + 1));
+        recycleRoutine = StartCoroutine(Recycle(timeToEnd + 0));
     }
 
     IEnumerator Recycle(float lifeTime)
     {
         yield return new WaitForSeconds(lifeTime);
 
+        Destroy(Instantiate(ploufGameObject, landSpot, Quaternion.identity), 2);
+
         PoolManager.RecycleGameObject(gameObject);
     }
 
-    private void ExplodeSound()
+    private void Explode()
     {
-        explosionSource.Play();
+        Destroy(Instantiate(explosionGameObject, transform.position, Quaternion.identity), 2);
     }
+
+    private Vector3 landSpot;
 
     public void Initialize(Vector3 parabola, Vector3 start, Vector3 end, bool isLeft, Player player)
     {
@@ -56,6 +62,7 @@ public class Bullet : MonoBehaviour
         sign = isLeft ? 1 : -1;
 
         this.PlayerInstance = player;
+        landSpot = end;
     }
 
     private void Update()
@@ -73,7 +80,10 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision) {
         
-        ExplodeSound();
+        Explode();
+
+        StopCoroutine(recycleRoutine);
+
 
         if ((boatMask.value & 1 << collision.gameObject.layer) > 0) {
             if (isLeft != collision.gameObject.GetComponent<Boat>().IsLeft) {

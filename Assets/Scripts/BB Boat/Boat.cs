@@ -10,13 +10,10 @@ public class Boat : MonoBehaviour
     private bool isLeft;
     [SerializeField]
     private GameObject renderer;
+    [SerializeField]
+    private GameObject explosionPrefab;
 
-    private GameEvent onBorderPasseEvent;
-
-    private int level;
-
-    private Player player;
-    public Player PlayerInstance { get => player; private set => player = value; }
+    public Player PlayerInstance { get; private set; }
 
     public bool IsLeft { get => isLeft;
         set
@@ -33,8 +30,8 @@ public class Boat : MonoBehaviour
             }
         }
     }
-    public GameEvent OnBorderPassedEvent { get => onBorderPasseEvent; set => onBorderPasseEvent = value; }
-    public int Level { get => level; set => level = value; }
+    public GameEvent OnBorderPassedEvent { get; set; }
+    public int Level { get; set; }
 
     [SerializeField]
     private LayerMask playerMask, wallMask, boatMask;
@@ -78,16 +75,23 @@ public class Boat : MonoBehaviour
         }
     }
 
+    private void Explode()
+    {
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+    }
+
     private void OnCollisionEnter(Collision collision) {
         if ((playerMask.value & (1 << collision.gameObject.layer)) > 0) {
             collision.gameObject.GetComponent<Player>().TakeDamage(1);
             PoolManager.RecycleGameObject(gameObject);
+            Explode();
         } else if ((wallMask.value & (1 << collision.gameObject.layer)) > 0) {
             OnBorderPassedEvent.Raise();
             PoolManager.RecycleGameObject(gameObject);
         } else if ((boatMask.value & (1 << collision.gameObject.layer)) > 0) {
             PoolManager.RecycleGameObject(collision.gameObject);
             PoolManager.RecycleGameObject(gameObject);
+            Explode();
         }
     }
 }

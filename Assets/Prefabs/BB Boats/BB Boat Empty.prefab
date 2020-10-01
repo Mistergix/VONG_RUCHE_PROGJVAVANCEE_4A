@@ -64,6 +64,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLeft: 0
   renderer: {fileID: 3341391215779023295}
+  explosionPrefab: {fileID: 6394861998149134291, guid: 7185807bed398ed479d6f8c41d21e5c7,
+    type: 3}
   playerMask:
     serializedVersion: 2
     m_Bits: 1024

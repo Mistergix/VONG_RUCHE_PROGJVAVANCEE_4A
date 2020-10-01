@@ -482,7 +482,7 @@ GameObject:
   - component: {fileID: 2121524941}
   - component: {fileID: 3380513781738650512}
   m_Layer: 10
-  m_Name: Player
+  m_Name: Player 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -594,7 +594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boatSpeed: 4
-  spawnCoolDown: 1
+  spawnCoolDown: 4
   boatPool: {fileID: 622441618}
   boatSpawn: {fileID: 368573457}
   levelSystem: {fileID: 905392938111561491}

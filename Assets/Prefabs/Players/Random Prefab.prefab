@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b6ce6ae308c1548af421a8b3b32d9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boatSpeed: 1
+  boatSpeed: 4
   spawnCoolDown: 4
   boatPool: {fileID: 7014563017404697598}
   boatSpawn: {fileID: 7014563018194387837}
