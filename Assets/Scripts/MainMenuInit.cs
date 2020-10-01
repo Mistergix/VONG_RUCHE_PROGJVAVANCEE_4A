@@ -12,6 +12,7 @@ public class MainMenuInit : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1;
         foreach (var player in players)
         {
             player.Init(nullData);
