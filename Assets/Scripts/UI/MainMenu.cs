@@ -14,10 +14,21 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private InitializationData data;
 
+    [SerializeField]
+    private Animator animOptions;
+
     public void LaunchGame()
     {
         data.SetLeftAgentType(leftDD.value);
         data.SetRightAgentType(rightDD.value);
         sceneLoading.LaunchGame();
+    }
+
+    public void QuitGame() {
+        sceneLoading.Quit();
+    }
+
+    public void Options() {
+        animOptions.SetTrigger("Open");
     }
 }
