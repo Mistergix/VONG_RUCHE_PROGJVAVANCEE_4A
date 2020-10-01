@@ -8,13 +8,29 @@ public class Boat : MonoBehaviour
     private List<BoatBehavior> behaviors;
     [SerializeField]
     private bool isLeft;
+    [SerializeField]
+    private GameObject renderer;
 
     private GameEvent onBorderPasseEvent;
 
     private int level;
 
 
-    public bool IsLeft { get => isLeft; set => isLeft = value; }
+    public bool IsLeft { get => isLeft;
+        set
+        {
+            isLeft = value;
+
+            if(isLeft)
+            {
+                renderer.transform.rotation = Quaternion.Euler(0, -90, 0);
+            }
+            else
+            {
+                renderer.transform.rotation = Quaternion.Euler(0, 90, 0);
+            }
+        }
+    }
     public GameEvent OnBorderPassedEvent { get => onBorderPasseEvent; set => onBorderPasseEvent = value; }
     public int Level { get => level; set => level = value; }
 
