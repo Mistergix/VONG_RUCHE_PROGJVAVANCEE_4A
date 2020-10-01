@@ -32,23 +32,26 @@ public class PoolManager : MonoBehaviour
     /// <returns></returns>
     private GameObject AddNewCopies(bool active = false, bool verbose = false)
     {
-        GameObject go = new GameObject("TMP POOL OBJECT");
-
         for (int i = 0; i < numberOfInstancesAtStart; i++)
         {
-            go = Instantiate(_referencePrefab, transform);
+            GameObject go = Instantiate(_referencePrefab, transform);
             go.SetActive(false);
             copies.Add(go);
+
+            if(i == numberOfInstancesAtStart - 1)
+            {
+                if (verbose)
+                {
+                    Debug.Log("Added " + numberOfInstancesAtStart + " objects in " + gameObject + "Pool");
+                }
+
+                go.SetActive(active);
+
+                return go;
+            }
         }
 
-        if(verbose)
-        {
-            Debug.Log("Added " + numberOfInstancesAtStart + " objects in " + gameObject + "Pool");
-        }
-
-        go.SetActive(active);
-
-        return go;
+        return new GameObject("POOL ERROR GAME OBJECT");
     }
 
     private GameObject _RequestACopy()
