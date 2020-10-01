@@ -31,7 +31,9 @@ public class FollowPath : MonoBehaviour
     private Transform CurrentWaypoint { get => waypoints[CurrentWaypointIndex]; }
     private Transform NextWaypoint { get => waypoints[NextWaypointIndex];  }
     public float Waypointcompletion { get => waypointcompletion; set => waypointcompletion = Mathf.Clamp01(value); }
-    public float Speed { get => speed / 100; set => speed = value; }
+    public float Speed { get => speed; set => speed = value; }
+
+    private Vector3 Direction { get => NextWaypoint.position - transform.position; }
 
     // Start is called before the first frame update
     void Start()
@@ -43,23 +45,29 @@ public class FollowPath : MonoBehaviour
         CurrentWaypointIndex = 0;
         
         transform.position = CurrentWaypoint.position;
-
-        transform.rotation = Quaternion.FromToRotation(-transform.forward, NextWaypoint.position);
     }
 
     float waypointcompletion = 0;
+    [SerializeField]
+    private float rotationSpeed;
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.Lerp(transform.position, NextWaypoint.position, Waypointcompletion);
-        Waypointcompletion += Speed * Time.deltaTime / Vector3.Distance(CurrentWaypoint.position, NextWaypoint.position);
+        transform.position += Direction.normalized * Speed * Time.deltaTime;
 
-        if(Waypointcompletion == 1)
+        if (Vector3.Distance(transform.position, NextWaypoint.position) <= 0.5f)
         {
-            Waypointcompletion = 0;
             CurrentWaypointIndex++;
-            transform.rotation = Quaternion.FromToRotation(-transform.forward, NextWaypoint.position);
+        }
+
+        if (Direction != Vector3.zero)
+        {
+            transform.rotation = Quaternion.Slerp(
+                transform.rotation,
+                Quaternion.LookRotation(-Direction),
+                Time.deltaTime * rotationSpeed
+            );
         }
     }
 }
