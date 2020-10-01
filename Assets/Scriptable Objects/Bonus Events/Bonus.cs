@@ -27,6 +27,9 @@ public class Bonus : MonoBehaviour
         }
         else if ((boatMask.value & (1 << collision.gameObject.layer)) > 0)
         {
+            if (collision.gameObject.TryGetComponent(out Boat boat)) {
+                bonusEvent.Raise(boat.PlayerInstance);
+            }
             PoolManager.RecycleGameObject(gameObject);
         }
     }

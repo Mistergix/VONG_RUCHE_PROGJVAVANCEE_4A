@@ -793,6 +793,7 @@ GameObject:
   - component: {fileID: 1633027627}
   - component: {fileID: 1633027626}
   - component: {fileID: 1633027628}
+  - component: {fileID: 1633027629}
   m_Layer: 0
   m_Name: BonusManager
   m_TagString: Untagged
@@ -818,6 +819,7 @@ MonoBehaviour:
   yFreeSpace: 0.7
   bonusEvents:
   - {fileID: 11400000, guid: 43aa0c5b81029f646a418be83359949d, type: 2}
+  - {fileID: 11400000, guid: b4715f94a50aef749ab30fa1e6af02ce, type: 2}
 --- !u!4 &1633027627
 Transform:
   m_ObjectHideFlags: 0
@@ -851,6 +853,33 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1633027626}
         m_MethodName: BonusHealth
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1633027629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633027625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6825fdd2b2efc514a8198e51c9b3a3df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventListened: {fileID: 11400000, guid: b4715f94a50aef749ab30fa1e6af02ce, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1633027626}
+        m_MethodName: ReduceCooldown
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1089,6 +1118,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3469452960806809526, guid: e56dbe85d55f95946a00bc09475ed860,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.43933105
+      objectReference: {fileID: 0}
     - target: {fileID: 6424274011432417073, guid: e56dbe85d55f95946a00bc09475ed860,
         type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.size
@@ -1373,6 +1407,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424274013106571194, guid: e56dbe85d55f95946a00bc09475ed860,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.43933105
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e56dbe85d55f95946a00bc09475ed860, type: 3}
