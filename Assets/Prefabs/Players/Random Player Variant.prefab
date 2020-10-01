@@ -36,10 +36,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86c8fba458470b43aef330dd3db0145, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.5
-  freeSpacePercentage: 0.8
+  speed: 1
+  freeSpacePercentage: 0.7
   moveMin: {fileID: 5101712269371594553}
   moveMax: {fileID: 2010144059350647938}
+  foamSystem: {fileID: 6697598333004591555}
 --- !u!114 &1703392922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,6 +218,12 @@ Transform:
 --- !u!4 &5101712269371594553 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5626448346721428892, guid: fd34c88930f0ed24e9da15cd2798694b,
+    type: 3}
+  m_PrefabInstance: {fileID: 637757088471151269}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6697598333004591555 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6065049640811873126, guid: fd34c88930f0ed24e9da15cd2798694b,
     type: 3}
   m_PrefabInstance: {fileID: 637757088471151269}
   m_PrefabAsset: {fileID: 0}

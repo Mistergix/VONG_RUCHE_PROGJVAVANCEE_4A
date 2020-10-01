@@ -813,7 +813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bonusPool: {fileID: 448968492}
-  bonusSpawnWaitTime: 10
+  bonusSpawnWaitTime: 30
   xFreeSpace: 0.3
   yFreeSpace: 0.7
   bonusEvents:

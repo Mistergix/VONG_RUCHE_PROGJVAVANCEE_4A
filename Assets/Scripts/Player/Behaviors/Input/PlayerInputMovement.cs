@@ -8,6 +8,8 @@ public class PlayerInputMovement : PlayerMovement
 
     private KeyCode upKey, downKey;
 
+    
+
     public void SetKeys(KeyCode up, KeyCode down)
     {
         upKey = up;
@@ -19,6 +21,7 @@ public class PlayerInputMovement : PlayerMovement
         base.Init();
         playerData = GetComponent<Player>().PlayerDataInstance;
         SetKeys(playerData.Up, playerData.Down);
+        
     }
 
     protected override float UpDirection()
