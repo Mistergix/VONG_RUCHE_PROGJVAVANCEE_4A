@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0095be21abe9ea840a34650de064ba80, type: 3}
   m_Name: Main Initialization Data
   m_EditorClassIdentifier: 
-  inputPlayerPrefab: {fileID: 4834160500933116159, guid: fd34c88930f0ed24e9da15cd2798694b,
+  inputPlayerPrefab: {fileID: 4834160500933116159, guid: 127c730b7d8e590478e4ee03b7b7f84b,
     type: 3}
-  randomPlayerPrefab: {fileID: 5462769511823880794, guid: 25d1bd7307941ae40bb88b25bf0a56f6,
+  randomPlayerPrefab: {fileID: 2472151541443837843, guid: 2cc026194b9063446b3d13099b46538e,
     type: 3}
   iaPlayerPrefab: {fileID: 1128842957178869568, guid: b654ec8fabb5b9e45a07529f4b05b833,
     type: 3}
