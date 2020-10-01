@@ -73,5 +73,6 @@ public class Player : MonoBehaviour
     public void LevelUp()
     {
         Level++;
+        PlayerDataInstance.LevelUpEvent.Raise();
     }
 }

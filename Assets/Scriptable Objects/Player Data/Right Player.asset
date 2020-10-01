@@ -23,3 +23,4 @@ MonoBehaviour:
   shootEvent: {fileID: 11400000, guid: fe603a88bd38ec94998f118d0c68d85e, type: 2}
   spawnEvent: {fileID: 11400000, guid: 0b3cc45182cf981478e283294dd7bb59, type: 2}
   boatBorderEvent: {fileID: 11400000, guid: 3d4b9d87a5298754ca868f5f98ff19af, type: 2}
+  levelUpEvent: {fileID: 11400000, guid: 90db5beaa40f61f4db5b6b7da4082b1b, type: 2}

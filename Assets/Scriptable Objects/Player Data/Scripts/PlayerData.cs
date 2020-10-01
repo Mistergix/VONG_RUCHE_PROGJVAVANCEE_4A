@@ -12,7 +12,7 @@ public class PlayerData : ScriptableObject
     private bool isLeft;
 
     [SerializeField]
-    private GameEvent takeDamageEvent, shootEvent, spawnEvent, boatBorderEvent;
+    private GameEvent takeDamageEvent, shootEvent, spawnEvent, boatBorderEvent, levelUpEvent;
 
     public KeyCode Up { get => up; private set => up = value; }
     public KeyCode Down { get => down; private set => down = value; }
@@ -25,4 +25,5 @@ public class PlayerData : ScriptableObject
     public GameEvent ShootEvent { get => shootEvent; private set => shootEvent = value; }
     public GameEvent SpawnEvent { get => spawnEvent; private set => spawnEvent = value; }
     public GameEvent BoatBorderEvent { get => boatBorderEvent; private set => boatBorderEvent = value; }
+    public GameEvent LevelUpEvent { get => levelUpEvent; private set => levelUpEvent = value; }
 }

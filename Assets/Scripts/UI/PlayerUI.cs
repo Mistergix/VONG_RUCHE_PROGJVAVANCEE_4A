@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerUI : MonoBehaviour
 {
     [SerializeField]
-    private TextMeshProUGUI lifeText;
+    private TextMeshProUGUI lifeText, levelText;
 
     [SerializeField]
     private Image shootImage, spawnImage;
@@ -22,11 +22,17 @@ public class PlayerUI : MonoBehaviour
         this.player = player;
 
         LifeTextUpdate();
+        levelText.text = "Niveau 1";
     }
 
     public void OnPlayerTakeDamage()
     {
         LifeTextUpdate();
+    }
+
+    public void OnPlayerLevelUp()
+    {
+        levelText.text = string.Format("Niveau {0}", player.Level);
     }
 
     public void OnPlayerShoot()

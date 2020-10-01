@@ -32,7 +32,7 @@ public class LevelManager : MonoBehaviour
             leftPlayer.LevelUp();
         }
 
-        if(leftScore > GameOverBoatNumber)
+        if(leftScore >= GameOverBoatNumber)
         {
             gameOver.Raise();
         }
@@ -45,7 +45,7 @@ public class LevelManager : MonoBehaviour
             rightPlayer.LevelUp();
         }
 
-        if (rightScore > GameOverBoatNumber)
+        if (rightScore >= GameOverBoatNumber)
         {
             gameOver.Raise();
         }
