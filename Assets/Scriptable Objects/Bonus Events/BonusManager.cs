@@ -49,7 +49,7 @@ public class BonusManager : MonoBehaviour
         Bonus bonus = bonusGo.GetComponent<Bonus>();
 
         float x = Random.Range(minPos.x, maxPos.x);
-        float y = Random.Range(minPos.y, maxPos.y);
+        float y = Random.Range(minPos.z, maxPos.z);
 
         bonusGo.transform.position = new Vector3(x, 0, y);
 
