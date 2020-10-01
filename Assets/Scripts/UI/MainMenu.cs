@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviour
-{
+public class MainMenu : MonoBehaviour {
     [SerializeField]
     private Dropdown leftDD, rightDD;
 
@@ -17,8 +16,12 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private Animator animOptions;
 
-    public void LaunchGame()
-    {
+    [SerializeField]
+    private Image settingsMenu;
+
+    [SerializeField]
+    private Image blocker;
+    public void LaunchGame() {
         data.SetLeftAgentType(leftDD.value);
         data.SetRightAgentType(rightDD.value);
         sceneLoading.LaunchGame();
@@ -29,6 +32,17 @@ public class MainMenu : MonoBehaviour
     }
 
     public void Options() {
+        blocker.gameObject.SetActive(!blocker.gameObject.activeSelf);
+        if (settingsMenu.gameObject.activeSelf) {
+            StartCoroutine(ActivePanel());
+        } else {
+            settingsMenu.gameObject.SetActive(!settingsMenu.gameObject.activeSelf);
+        }
         animOptions.SetTrigger("Open");
+    }
+
+    IEnumerator ActivePanel() {
+        yield return new WaitForSeconds(1f);
+        settingsMenu.gameObject.SetActive(!settingsMenu.gameObject.activeSelf);
     }
 }

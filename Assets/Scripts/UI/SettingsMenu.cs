@@ -6,24 +6,15 @@ using UnityEngine.Audio;
 public class SettingsMenu : MonoBehaviour
 {
     [SerializeField]
-    private AudioMixer audioMixer;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private AudioMixer audioMixerBGM;
+    [SerializeField]
+    private AudioMixer audioMixerSFX;
 
     public void SetVolumeBGM(float volume) {
-        audioMixer.SetFloat("VolumeBGM", volume);
+        audioMixerBGM.SetFloat("VolumeBGM", volume);
     }
 
     public void SetVolumeSFX(float volume) {
-        audioMixer.SetFloat("VolumeSFX", volume);
+        audioMixerSFX.SetFloat("VolumeSFX", volume);
     }
 }
