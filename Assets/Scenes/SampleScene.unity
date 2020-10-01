@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1152,27 +1152,37 @@ PrefabInstance:
     - target: {fileID: 5789023713043267506, guid: e56dbe85d55f95946a00bc09475ed860,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5789023713043267506, guid: e56dbe85d55f95946a00bc09475ed860,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5789023713043267506, guid: e56dbe85d55f95946a00bc09475ed860,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5789023713043267506, guid: e56dbe85d55f95946a00bc09475ed860,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5789023713043267506, guid: e56dbe85d55f95946a00bc09475ed860,
         type: 3}
       propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789023713043267506, guid: e56dbe85d55f95946a00bc09475ed860,
+        type: 3}
+      propertyPath: m_enableAutoSizing
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789023713043267506, guid: e56dbe85d55f95946a00bc09475ed860,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 6345903295839669480, guid: e56dbe85d55f95946a00bc09475ed860,
         type: 3}
