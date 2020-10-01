@@ -511,7 +511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boatSpeed: 4
-  spawnCoolDown: 6
+  spawnCoolDown: 1
   boatPool: {fileID: 622441618}
   boatSpawn: {fileID: 368573457}
   levelSystem: {fileID: 905392938111561491}

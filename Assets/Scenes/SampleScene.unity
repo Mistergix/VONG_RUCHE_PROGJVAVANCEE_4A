@@ -608,6 +608,10 @@ PrefabInstance:
       propertyPath: boatPerLevel
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1312179757, guid: 2ab73a74a4dad0d49aec4e17d8bf98b0, type: 3}
+      propertyPath: gameOverThresholdLevel
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2671018360533840598, guid: 2ab73a74a4dad0d49aec4e17d8bf98b0,
         type: 3}
       propertyPath: m_Name
