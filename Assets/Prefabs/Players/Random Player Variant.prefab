@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee9c331e02e64c40b32b8b9eb356258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootCoolDown: 1.5
+  shootCoolDown: 1
   aimSpeed: 1
   bulletHeight: 4
   trajectoryPrecision: 20
