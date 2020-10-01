@@ -51,7 +51,7 @@ public class BonusManager : MonoBehaviour
         float x = Random.Range(minPos.x, maxPos.x);
         float y = Random.Range(minPos.z, maxPos.z);
 
-        bonusGo.transform.position = new Vector3(x, 0, y);
+        bonusGo.transform.position = new Vector3(x, -0.5f, y);
 
         bonus.Init(bonusEvents[Random.Range(0, bonusEvents.Count)]);
     }
