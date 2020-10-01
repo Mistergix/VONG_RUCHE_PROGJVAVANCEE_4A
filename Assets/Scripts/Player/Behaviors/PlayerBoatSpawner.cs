@@ -21,17 +21,22 @@ public abstract class PlayerBoatSpawner : MonoBehaviour
 
     private bool isLeft;
 
+    private Player player;
     private PlayerData playerData;
 
     public PlayerData PlayerDataInstance { get => playerData; private set => playerData = value; }
     public float SpawnCooldown { get => spawnCoolDown; private set => spawnCoolDown = value; }
+    private float spawnCooldownCounter;
+    public void ChangeSpawnCooldown(float newCD) {
+        spawnCoolDown = newCD;
+    }
 
     public virtual void Init()
     {
         canSpawn = true;
         boatPool.transform.parent = null;
 
-        Player player = GetComponent<Player>();
+        player = GetComponent<Player>();
 
         isLeft = player.IsLeft;
         PlayerDataInstance = player.PlayerDataInstance;
@@ -50,27 +55,28 @@ public abstract class PlayerBoatSpawner : MonoBehaviour
         {
             return;
         }
-
         StartCoroutine(Spawn());
     }
 
     private IEnumerator Spawn()
     {
         canSpawn = false;
-
+        spawnCooldownCounter = 0;
         InstantiateBoat();
-
         PlayerDataInstance.SpawnEvent.Raise();
 
-        yield return new WaitForSeconds(spawnCoolDown);
+        while (spawnCooldownCounter < player.SpawnCoolDown) {
+            spawnCooldownCounter += Time.deltaTime;
 
+            yield return new WaitForEndOfFrame();
+        }
         canSpawn = true;
     }
 
     private void InstantiateBoat()
     {
         GameObject boatGo = boatPool.RequestACopy();
-        boatGo.transform.position = new Vector3(boatSpawn.position.x, 0, boatSpawn.position.z);
+        boatGo.GetComponent<Boat>().Initialize(player, boatSpawn);
 
         Boat boat = boatGo.GetComponent<Boat>();
 

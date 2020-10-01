@@ -71,4 +71,8 @@ public class BonusManager : MonoBehaviour
     {
         affectedPlayer.OverHeal();
     }
+
+    public void ReduceCooldown(Player affectedPlayer) {
+        affectedPlayer.ReduceCD();
+    }
 }

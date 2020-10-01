@@ -15,6 +15,8 @@ public class Boat : MonoBehaviour
 
     private int level;
 
+    private Player player;
+    public Player PlayerInstance { get => player; private set => player = value; }
 
     public bool IsLeft { get => isLeft;
         set
@@ -40,6 +42,11 @@ public class Boat : MonoBehaviour
     private void Start()
     {
         Level = 0;
+    }
+
+    public void Initialize(Player player, Transform tf) {
+        PlayerInstance = player;
+        transform.position = new Vector3(tf.position.x, 0, tf.position.z);
     }
 
     // Start is called before the first frame update

@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     public int CurrentLife { get; private set; }
 
     public float ShootCooldown { get => playerShoot.ShootCoolDown; }
-    public float SpawnCoolDown { get => playerBoatSpawner.SpawnCooldown; }
+    public float SpawnCoolDown { get => playerBoatSpawner.SpawnCooldown; private set => playerBoatSpawner.ChangeSpawnCooldown(value); }
     public int Level { get => level; private set => level = value; }
 
     public float ShootX { get => playerShoot.XMax; }
@@ -28,6 +28,12 @@ public class Player : MonoBehaviour
         MaxLife++;
         CurrentLife++;
         PlayerDataInstance.TakeDamageEvent.Raise();
+    }
+
+    public void ReduceCD() {
+        if (SpawnCoolDown > 1) {
+            SpawnCoolDown -= .5f;
+        }
     }
 
     public void Init(PlayerData playerData)
