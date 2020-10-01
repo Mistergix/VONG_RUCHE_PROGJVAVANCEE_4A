@@ -15,6 +15,9 @@ public abstract class PlayerMovement : MonoBehaviour
     [SerializeField]
     private Transform moveMin, moveMax;
 
+    [SerializeField]
+    private ParticleSystem foamSystem;
+
     private float moveQuantity;
 
     public float Speed { get => speed; private set => speed = value; }
@@ -43,14 +46,32 @@ public abstract class PlayerMovement : MonoBehaviour
 
         moveMin.transform.parent = null;
         moveMax.transform.parent = null;
+
+        foamSystem.Stop();
+
+        lastDirection = 0;
     }
 
     protected abstract float UpDirection();
 
+    private float lastDirection;
+
     internal void HandleMove()
     {
+        float direction = UpDirection();
 
-        MoveQuantity += UpDirection() * speed * Time.deltaTime;
+        if(lastDirection == 0 && direction != 0)
+        {
+            foamSystem.Play();
+        }
+        else if (lastDirection != 0 && direction == 0)
+        {
+            foamSystem.Stop();
+        }
+
+        lastDirection = direction;
+
+        MoveQuantity += direction * speed * Time.deltaTime;
 
         transform.position = Vector3.Lerp(moveMin.position, moveMax.position, MoveQuantity);
     }

@@ -7,6 +7,8 @@ public abstract class PlayerShoot : MonoBehaviour
 {
     [SerializeField]
     private float shootCoolDown, aimSpeed, bulletHeight;
+    [SerializeField]
+    private AudioSource canonSource;
 
     [Range(2, 100)]
     [SerializeField]
@@ -162,6 +164,8 @@ public abstract class PlayerShoot : MonoBehaviour
         InstantiateBullet();
 
         PlayerDataInstance.ShootEvent.Raise();
+
+        canonSource.Play();
 
         yield return new WaitForSeconds(ShootCoolDown);
 
