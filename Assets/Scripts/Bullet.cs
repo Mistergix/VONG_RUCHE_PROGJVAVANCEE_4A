@@ -9,19 +9,23 @@ public class Bullet : MonoBehaviour
 
     private Vector3 parabola;
 
+    [SerializeField]
+    private AudioSource explosionSource;
+
     private float x;
     private float speed;
 
     private bool isLeft;
 
     private float sign;
-
-    private Player player;
-
     [SerializeField]
     private LayerMask boatMask;
 
-    public Player PlayerInstance { get => player; private set => player = value; }
+    public Player PlayerInstance { get; private set; }
+
+    private void Start()
+    {
+    }
 
     private void OnEnable()
     {
@@ -33,6 +37,11 @@ public class Bullet : MonoBehaviour
         yield return new WaitForSeconds(lifeTime);
 
         PoolManager.RecycleGameObject(gameObject);
+    }
+
+    private void ExplodeSound()
+    {
+        explosionSource.Play();
     }
 
     public void Initialize(Vector3 parabola, Vector3 start, Vector3 end, bool isLeft, Player player)
@@ -63,13 +72,19 @@ public class Bullet : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collision) {
+        
+        ExplodeSound();
+
         if ((boatMask.value & 1 << collision.gameObject.layer) > 0) {
             if (isLeft != collision.gameObject.GetComponent<Boat>().IsLeft) {
                 PoolManager.RecycleGameObject(collision.gameObject);
                 PoolManager.RecycleGameObject(gameObject);
+                
             } else {
                 PoolManager.RecycleGameObject(gameObject);
             }
         }
+
+        
     }
 }
