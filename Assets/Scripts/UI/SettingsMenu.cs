@@ -9,12 +9,16 @@ public class SettingsMenu : MonoBehaviour
     private AudioMixer audioMixerBGM;
     [SerializeField]
     private AudioMixer audioMixerSFX;
+    [SerializeField]
+    private MainMenu mm;
 
     public void SetVolumeBGM(float volume) {
         audioMixerBGM.SetFloat("VolumeBGM", volume);
+        PlayerPrefs.SetFloat("backgroundVolume", volume);
     }
 
     public void SetVolumeSFX(float volume) {
         audioMixerSFX.SetFloat("VolumeSFX", volume);
+        PlayerPrefs.SetFloat("SFXVolume", volume);
     }
 }

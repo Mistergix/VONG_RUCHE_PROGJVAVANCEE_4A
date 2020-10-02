@@ -22,7 +22,9 @@ public class Player : MonoBehaviour
     public int Level { get => level; private set => level = value; }
 
     public float ShootX { get => playerShoot.XMax; }
-
+    public bool GamePaused { get; set; }
+    [SerializeField]
+    private GameEvent pause;
     public void OverHeal()
     {
         MaxLife++;
@@ -48,11 +50,16 @@ public class Player : MonoBehaviour
         playerShoot.Init();
         playerBoatSpawner.Init();
 
+        GamePaused = true;
+
         Level = 1;
     }
 
     private void Update()
     {
+        if (GamePaused) {
+            return;
+        }
         playerMovement.HandleMove();
         playerShoot.Aim();
         playerShoot.HandleShoot();
@@ -74,5 +81,9 @@ public class Player : MonoBehaviour
     {
         Level++;
         PlayerDataInstance.LevelUpEvent.Raise();
+    }
+
+    public void isPause() {
+        GamePaused = !GamePaused;
     }
 }

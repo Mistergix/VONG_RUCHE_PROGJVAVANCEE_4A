@@ -482,6 +482,7 @@ GameObject:
   - component: {fileID: 2121524940}
   - component: {fileID: 2121524941}
   - component: {fileID: 3380513781738650512}
+  - component: {fileID: 1473139933064984441}
   m_Layer: 10
   m_Name: Player 1
   m_TagString: Untagged
@@ -599,6 +600,33 @@ MonoBehaviour:
   boatPool: {fileID: 622441618}
   boatSpawn: {fileID: 368573457}
   levelSystem: {fileID: 905392938111561491}
+--- !u!114 &1473139933064984441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4834160500933116159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75c9ac82565bb0944a91d88791b63ff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventListened: {fileID: 11400000, guid: e1956ae9957678a4cab5f008c3a89002, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2121524939}
+        m_MethodName: isPause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &5711653453962016104
 GameObject:
   m_ObjectHideFlags: 0
