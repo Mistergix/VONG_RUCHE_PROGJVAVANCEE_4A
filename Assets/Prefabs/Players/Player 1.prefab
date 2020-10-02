@@ -542,6 +542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLife: 5
+  pause: {fileID: 11400000, guid: e1956ae9957678a4cab5f008c3a89002, type: 2}
 --- !u!114 &2121524940
 MonoBehaviour:
   m_ObjectHideFlags: 0
