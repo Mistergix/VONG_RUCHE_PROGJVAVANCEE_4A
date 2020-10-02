@@ -21,6 +21,14 @@ public class MainMenu : MonoBehaviour {
 
     [SerializeField]
     private Image blocker;
+
+    public Slider backgroundSlider;
+    public Slider SFXSlider;
+
+    private void Start() {
+        backgroundSlider.value = PlayerPrefs.GetFloat("backgroundVolume", 0f);
+        SFXSlider.value = PlayerPrefs.GetFloat("SFXVolume", 0f);
+    }
     public void LaunchGame() {
         data.SetLeftAgentType(leftDD.value);
         data.SetRightAgentType(rightDD.value);
@@ -32,17 +40,18 @@ public class MainMenu : MonoBehaviour {
     }
 
     public void Options() {
-        blocker.gameObject.SetActive(!blocker.gameObject.activeSelf);
         if (settingsMenu.gameObject.activeSelf) {
             StartCoroutine(ActivePanel());
         } else {
             settingsMenu.gameObject.SetActive(!settingsMenu.gameObject.activeSelf);
+            blocker.gameObject.SetActive(!blocker.gameObject.activeSelf);
         }
         animOptions.SetTrigger("Open");
     }
 
     IEnumerator ActivePanel() {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(.5f);
         settingsMenu.gameObject.SetActive(!settingsMenu.gameObject.activeSelf);
+        blocker.gameObject.SetActive(!blocker.gameObject.activeSelf);
     }
 }
