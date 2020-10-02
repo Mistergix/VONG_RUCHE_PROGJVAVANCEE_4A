@@ -7,6 +7,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private GameEvent gameOver;
     [SerializeField]
+    private GameData mainData;
+    [SerializeField]
     private int boatPerLevel = 5, gameOverThresholdLevel = 4;
 
     private Player leftPlayer, rightPlayer;
@@ -34,6 +36,7 @@ public class LevelManager : MonoBehaviour
 
         if(leftScore >= GameOverBoatNumber)
         {
+            mainData.LeftWon = true;
             gameOver.Raise();
         }
     }
@@ -47,6 +50,7 @@ public class LevelManager : MonoBehaviour
 
         if (rightScore >= GameOverBoatNumber)
         {
+            mainData.LeftWon = false;
             gameOver.Raise();
         }
     }

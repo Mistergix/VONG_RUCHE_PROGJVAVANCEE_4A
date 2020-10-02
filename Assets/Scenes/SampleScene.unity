@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -680,6 +680,11 @@ PrefabInstance:
       propertyPath: boatPerLevel
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1312179757, guid: 2ab73a74a4dad0d49aec4e17d8bf98b0, type: 3}
+      propertyPath: mainData
+      value: 
+      objectReference: {fileID: 11400000, guid: 81daedaa6a4832346acdc40f2a665ecd,
+        type: 2}
     - target: {fileID: 2005809941, guid: 2ab73a74a4dad0d49aec4e17d8bf98b0, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
@@ -847,6 +852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOver: {fileID: 11400000, guid: a07e9cad96a28594ba846b5815f20424, type: 2}
+  mainData: {fileID: 11400000, guid: 81daedaa6a4832346acdc40f2a665ecd, type: 2}
 --- !u!4 &1413340244
 Transform:
   m_ObjectHideFlags: 0
