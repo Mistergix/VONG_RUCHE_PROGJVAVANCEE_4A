@@ -55,6 +55,10 @@ public abstract class PlayerBoatSpawner : MonoBehaviour
         {
             return;
         }
+
+        if (Time.timeScale == 0f) {
+            return;
+        }
         StartCoroutine(Spawn());
     }
 

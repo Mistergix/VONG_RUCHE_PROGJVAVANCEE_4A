@@ -104,6 +104,10 @@ public abstract class PlayerShoot : MonoBehaviour
             return;
         }
 
+        if (Time.timeScale == 0f) {
+            return;
+        }
+
         StartCoroutine(Shoot());
     }
 

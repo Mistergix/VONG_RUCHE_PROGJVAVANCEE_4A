@@ -57,9 +57,9 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (GamePaused) {
-            return;
-        }
+        //if (GamePaused) {
+        //    return;
+        //}
         playerMovement.HandleMove();
         playerShoot.Aim();
         playerShoot.HandleShoot();
